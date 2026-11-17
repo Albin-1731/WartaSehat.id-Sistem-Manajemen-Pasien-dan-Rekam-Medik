@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemeriksaan Pasien - WartaSehat.id</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Local Custom CSS -->
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body>
+
+  <!-- Pure CSS Mobile Sidebar Toggle Mechanism -->
+  <input type="checkbox" id="sidebarToggle" class="sidebar-toggle-check visually-hidden">
+  <label for="sidebarToggle" class="sidebar-overlay" aria-label="Tutup Menu"></label>
+
+  <div class="ws-app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="ws-sidebar">
+      <div class="ws-sidebar-brand">
+        <div class="ws-brand-logo" style="background: linear-gradient(135deg, var(--ws-secondary) 0%, var(--ws-primary) 100%);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="ws-brand-text">
+          <div class="ws-brand-title">WartaSehat<span>.id</span></div>
+          <div class="ws-brand-badge">Portal Dokter</div>
+        </div>
+      </div>
+
+      <ul class="ws-sidebar-menu">
+        <li class="ws-menu-header">Menu Pemeriksaan</li>
+        <li class="ws-menu-item">
+          <a href="dashboard.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </span>
+            <span>Dashboard Dokter</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="antrean-poli.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </span>
+            <span>Antrean Poliklinik</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="detail-pemeriksaan.html" class="ws-menu-link active">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" y1="15" x2="15" y2="15"/>
+              </svg>
+            </span>
+            <span>Pemeriksaan Pasien</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="ws-sidebar-footer">
+        <div class="ws-user-card">
+          <div class="ws-user-avatar" style="background-color: var(--ws-secondary-light); color: var(--ws-secondary);">
+            HP
+          </div>
+          <div class="ws-user-details">
+            <div class="ws-user-name">dr. Hendra Pratama, Sp.PD</div>
+            <span class="ws-user-role">Spesialis Penyakit Dalam</span>
+          </div>
+        </div>
+        <a href="../auth/login.html" class="ws-logout-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Keluar Sistem
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="ws-main-wrapper">
+      <!-- Topbar Header -->
+      <header class="ws-topbar">
+        <div class="ws-topbar-left">
+          <label for="sidebarToggle" class="sidebar-toggle-btn" aria-label="Buka Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </label>
+          <nav class="ws-breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="dashboard.html" class="ws-parent">Portal Dokter</a>
+            <span class="ws-separator">/</span>
+            <a href="antrean-poli.html" class="ws-parent">Antrean</a>
+            <span class="ws-separator">/</span>
+            <span class="ws-current">Formulir Pemeriksaan Medis</span>
+          </nav>
+        </div>
+
+        <div class="ws-topbar-right">
+          <a href="antrean-poli.html" class="btn btn-secondary btn-sm">
+            &larr; Kembali ke Antrean
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      <main class="ws-content-body">
+        <!-- Patient Clinical Header Card -->
+        <div class="ws-card mb-4 border-2 border-primary">
+          <div class="ws-card-body p-4">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <div class="d-flex align-items-center gap-3">
+                <div class="ws-user-avatar" style="width: 60px; height: 60px; font-size: 1.4rem; background-color: var(--ws-primary-light); color: var(--ws-primary);">
+                  AF
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <span class="badge badge-primary fw-bold fs-6">Antrean: A-012</span>
+                    <h1 class="h3 fw-bold mb-0">Ahmad Fauzi</h1>
+                    <span class="cell-code">RM-2026-0038</span>
+                  </div>
+                  <!-- Patient Identity List (Structured Info) -->
+                  <div class="ws-identity-list">
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">NIK:</span>
+                      <span class="ws-identity-val">3304123456780001</span>
+                    </div>
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">Jenis Kelamin:</span>
+                      <span class="ws-identity-val">Laki-laki</span>
+                    </div>
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">Usia:</span>
+                      <span class="ws-identity-val">45 Tahun</span>
+                    </div>
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">Golongan Darah:</span>
+                      <span class="ws-identity-val">O</span>
+                    </div>
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">No. HP:</span>
+                      <span class="ws-identity-val">081234567890</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge badge-warning fs-6">
+                  <span class="status-dot"></span> Status: Sedang Diperiksa
+                </span>
+                <a href="riwayat-rekam-medik-dokter.html" class="btn btn-sm btn-outline-primary">
+                  Buka Arsip Rekam Medik
+                </a>
+              </div>
+            </div>
+
+            <!-- Complaint Banner -->
+            <div class="mt-3 p-3 bg-light rounded border">
+              <div class="d-flex align-items-start gap-2">
+                <strong class="text-primary text-nowrap">Keluhan Awal Pasien:</strong>
+                <span class="text-secondary-emphasis">"Nyeri dada sebelah kiri tembus ke punggung dan sesak napas ringan setelah beraktivitas fisik sejak kemarin malam."</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Electronic Medical Record Input Form (POST to Backend PHP) -->
+        <form action="dashboard.html" method="POST" id="formPemeriksaan">
+          <!-- Hidden Fields matching Database Schema Lock (Tabel: `rekam_medik`) -->
+          <input type="hidden" name="id_antrean" value="1">
+          <input type="hidden" name="id_pasien" value="1">
+          <input type="hidden" name="id_dokter" value="1">
+          <input type="hidden" name="nomor_rm" value="RM-2026-0038">
+          <input type="hidden" name="tanggal_periksa" value="2026-11-16 08:35:00">
+
+          <div class="row g-4">
+            <!-- Left Column: 5 Cards Clinical Examination Entry -->
+            <div class="col-12 col-lg-8">
+
+              <!-- CARD 1: Pemeriksaan Awal -->
+              <div class="ws-card mb-4">
+                <div class="ws-card-header">
+                  <h2 class="ws-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                    1. Pemeriksaan Awal
+                  </h2>
+                  <span class="badge badge-secondary">Tanda Vital & Fisik Awal</span>
+                </div>
+                <div class="ws-card-body">
+                  <!-- 1.1 Tanda-Tanda Vital Awal -->
+                  <div class="mb-3">
+                    <label class="form-label fw-bold text-dark">
+                      Pengukuran Tanda-Tanda Vital Awal <span class="required">*</span>
+                    </label>
+                    <div class="row g-3">
+                      <div class="col-12 col-sm-6 col-md-3">
+                        <label for="tekanan_darah" class="form-label small text-muted">Tekanan Darah</label>
+                        <div class="input-group input-group-sm">
+                          <input 
+                            type="text" 
+                            class="form-control font-monospace" 
+                            id="tekanan_darah" 
+                            name="tekanan_darah" 
+                            placeholder="120/80" 
+                            value="135/85" 
+                            required
+                          >
+                          <span class="input-group-text">mmHg</span>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-sm-6 col-md-3">
+                        <label for="suhu_tubuh" class="form-label small text-muted">Suhu Tubuh</label>
+                        <div class="input-group input-group-sm">
+                          <input 
+                            type="text" 
+                            class="form-control font-monospace" 
+                            id="suhu_tubuh" 
+                            name="suhu_tubuh" 
+                            value="36.7" 
+                            required
+                          >
+                          <span class="input-group-text">&deg;C</span>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-sm-6 col-md-3">
+                        <label for="berat_badan" class="form-label small text-muted">Berat Badan</label>
+                        <div class="input-group input-group-sm">
+                          <input 
+                            type="text" 
+                            class="form-control font-monospace" 
+                            id="berat_badan" 
+                            name="berat_badan" 
+                            value="68.0" 
+                            required
+                          >
+                          <span class="input-group-text">kg</span>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-sm-6 col-md-3">
+                        <label for="tinggi_badan" class="form-label small text-muted">Tinggi Badan</label>
+                        <div class="input-group input-group-sm">
+                          <input 
+                            type="text" 
+                            class="form-control font-monospace" 
+                            id="tinggi_badan" 
+                            name="tinggi_badan" 
+                            value="172.0" 
+                            required
+                          >
+                          <span class="input-group-text">cm</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr class="my-3 text-muted">
+
+                  <!-- 1.2 Anamnesis & Fisik Awal -->
+                  <div class="mb-3">
+                    <label for="anamnesis" class="form-label fw-bold text-dark">
+                      Anamnesis / Riwayat Penyakit Sekarang <span class="required">*</span>
+                    </label>
+                    <textarea 
+                      class="form-control" 
+                      id="anamnesis" 
+                      name="anamnesis" 
+                      rows="3" 
+                      placeholder="Keluhan utama, kronologi timbulnya gejala, durasi, dll..." 
+                      required
+                    >Pasien mengeluhkan rasa berat dan nyeri dada sebelah kiri yang dirasakan sejak kemarin malam setelah bermain bulu tangkis. Nyeri terasa seperti tertindih beban berat dan menjalar ke punggung dan bahu kiri selama 15-20 menit. Keluhan mereda saat istirahat. Riwayat merokok aktif 1 bungkus/hari selama 15 tahun.</textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="riwayat_alergi" class="form-label fw-bold text-dark">
+                      Riwayat Alergi Obat / Makanan
+                    </label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="riwayat_alergi" 
+                      name="riwayat_alergi" 
+                      placeholder="Contoh: Alergi Amoksisilin, Seafood (kosongkan jika tidak ada)" 
+                      value="Tidak ada riwayat alergi obat"
+                    >
+                  </div>
+
+                  <div class="mb-0">
+                    <label for="pemeriksaan_fisik" class="form-label fw-bold text-dark">
+                      Temuan Pemeriksaan Fisik Awal
+                    </label>
+                    <textarea 
+                      class="form-control" 
+                      id="pemeriksaan_fisik" 
+                      name="pemeriksaan_fisik" 
+                      rows="3" 
+                      placeholder="Hasil pemeriksaan auskultasi, inspeksi fisik awal..."
+                    >Keadaan umum: Tampak lelah, kesadaran compos mentis. Cor: S1-S2 murni reguler, murmur (-), gallop (-). Pulmo: Vesikuler +/+, rhonki -/-, wheezing -/-. Abdomen: Supel, bising usus normal, hepar/lien tidak teraba membesar. Ekstremitas: Akral hangat, CRT < 2 detik, edema pretibial (-).</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 2: Diagnosis Awal & Tindakan -->
+              <div class="ws-card mb-4">
+                <div class="ws-card-header">
+                  <h2 class="ws-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                    2. Diagnosis Awal & Tindakan
+                  </h2>
+                  <span class="badge badge-warning">Kerja Awal & Prosedur</span>
+                </div>
+                <div class="ws-card-body">
+                  <div class="mb-3">
+                    <label for="diagnosis_awal" class="form-label fw-bold text-dark">
+                      Diagnosis Awal (Suspect / Working Diagnosis) <span class="required">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      class="form-control font-monospace" 
+                      id="diagnosis_awal" 
+                      name="diagnosis_awal" 
+                      placeholder="Contoh: Suspect Ischemic Heart Disease / Observasi Febris" 
+                      value="Suspect Ischemic Heart Disease / Angina Pectoris (I20.9)" 
+                      required
+                    >
+                    <div class="form-text">Diagnosis dugaan klinis sebelum atau saat pelaksanaan tindakan penunjang.</div>
+                  </div>
+
+                  <div class="mb-0">
+                    <label for="tindakan" class="form-label fw-bold text-dark">
+                      Tindakan Medis / Prosedur Poliklinik / Rujukan Penunjang
+                    </label>
+                    <textarea 
+                      class="form-control" 
+                      id="tindakan" 
+                      name="tindakan" 
+                      rows="3" 
+                      placeholder="Tindakan yang dilakukan selama di poli (misal: EKG 12 Lead, Pemeriksaan Lab Darah, Nebulisasi)..."
+                    >1. Pemeriksaan Rekam Jantung EKG 12 Lead (Hasil: ST depresi 1mm di lead V4-V6)
+2. Pemasangan Oksigen nasal kanul 3 Lpm
+3. Edukasi istirahat tirah baring</textarea>
+                  </div>
+
+                  <!-- Hasil Penunjang / Lab dari Petugas -->
+                  <div class="mt-3 p-3 rounded border" style="background-color: #f0fdf4; border-color: #bbf7d0 !important;">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+                      <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-success text-white fw-bold">HASIL LAB MASUK</span>
+                        <strong class="text-success-emphasis">Hasil Tes Darah Lab (Dikirim Petugas)</strong>
+                      </div>
+                      <span class="text-muted small">Pukul 09:10 WIB &bull; Petugas Lab: Budi Santoso</span>
+                    </div>
+                    <div class="p-2 bg-white rounded border font-monospace small text-dark">
+                      Hemoglobin: 12.8 g/dL (Normal)<br>
+                      Leukosit: 8.400 /uL (Normal)<br>
+                      Hematokrit: 41 %<br>
+                      Trombosit: 115.000 /uL (Trombositopenia)<br>
+                      Kesan: Trombositopenia suspek DHF grade I.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 3: Pemeriksaan Akhir -->
+              <div class="ws-card mb-4">
+                <div class="ws-card-header">
+                  <h2 class="ws-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                    3. Pemeriksaan Akhir
+                  </h2>
+                  <span class="badge badge-info">Evaluasi Pasca Tindakan</span>
+                </div>
+                <div class="ws-card-body">
+                  <!-- 3.1 Tanda-Tanda Vital Akhir -->
+                  <div class="mb-3">
+                    <label class="form-label fw-bold text-dark">
+                      Pengukuran Tanda-Tanda Vital Akhir
+                    </label>
+                    <div class="row g-3">
+                      <div class="col-12 col-sm-6 col-md-3">
+                        <label for="tekanan_darah_akhir" class="form-label small text-muted">Tekanan Darah</label>
+                        <div class="input-group input-group-sm">
+                          <input 
+                            type="text" 
+                            class="form-control font-monospace" 
+                            id="tekanan_darah_akhir" 
+                            name="tekanan_darah_akhir" 
+                            placeholder="120/80" 
+                            value="125/80"
+                          >
+                          <span class="input-group-text">mmHg</span>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-sm-6 col-md-3">
+                        <label for="suhu_tubuh_akhir" class="form-label small text-muted">Suhu Tubuh</label>
+                        <div class="input-group input-group-sm">
+                          <input 
+                            type="text" 
+                            class="form-control font-monospace" 
+                            id="suhu_tubuh_akhir" 
+                            name="suhu_tubuh_akhir" 
+                            value="36.5"
+                          >
+                          <span class="input-group-text">&deg;C</span>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-sm-6 col-md-3">
+                        <label for="nadi_akhir" class="form-label small text-muted">Denyut Nadi</label>
+                        <div class="input-group input-group-sm">
+                          <input 
+                            type="text" 
+                            class="form-control font-monospace" 
+                            id="nadi_akhir" 
+                            name="nadi_akhir" 
+                            value="82"
+                          >
+                          <span class="input-group-text">x/mnt</span>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-sm-6 col-md-3">
+                        <label for="laju_napas_akhir" class="form-label small text-muted">Laju Napas</label>
+                        <div class="input-group input-group-sm">
+                          <input 
+                            type="text" 
+                            class="form-control font-monospace" 
+                            id="laju_napas_akhir" 
+                            name="laju_napas_akhir" 
+                            value="18"
+                          >
+                          <span class="input-group-text">x/mnt</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr class="my-3 text-muted">
+
+                  <!-- 3.2 Evaluasi Fisik & Respon Pasca Tindakan -->
+                  <div class="mb-0">
+                    <label for="evaluasi_akhir" class="form-label fw-bold text-dark">
+                      Evaluasi Fisik & Respon Pasca Tindakan
+                    </label>
+                    <textarea 
+                      class="form-control" 
+                      id="evaluasi_akhir" 
+                      name="evaluasi_akhir" 
+                      rows="3" 
+                      placeholder="Respon pasien setelah istirahat/tindakan (nyeri berkurang, keluhan reda, dll)..."
+                    >Pasien menyatakan rasa nyeri dada sudah jauh berkurang setelah istirahat tirah baring dan pemberian O2. Nadi teratur 82 x/mnt, tidak ada sianosis, perfusi perifer hangat.</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 4: Diagnosis Akhir -->
+              <div class="ws-card mb-4">
+                <div class="ws-card-header">
+                  <h2 class="ws-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 14 14"/>
+                    </svg>
+                    4. Diagnosis Akhir
+                  </h2>
+                  <span class="badge badge-success">Definitif</span>
+                </div>
+                <div class="ws-card-body">
+                  <div class="mb-0">
+                    <label for="diagnosis" class="form-label fw-bold text-dark">
+                      Diagnosis Akhir (Definitive Diagnosis) <span class="required">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      class="form-control fw-bold text-danger font-monospace" 
+                      id="diagnosis" 
+                      name="diagnosis" 
+                      placeholder="Tuliskan nama diagnosis akhir atau kode ICD-10..." 
+                      value="I20.9 - Angina Pectoris, Unspecified" 
+                      required
+                    >
+                    <div class="form-text">Diagnosis final yang ditetapkan setelah mempertimbangkan pemeriksaan awal dan evaluasi tindakan.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CARD 5: Resep Obat & Catatan / Edukasi Dokter -->
+              <div class="ws-card mb-4">
+                <div class="ws-card-header">
+                  <h2 class="ws-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                    5. Resep Obat Elektronik & Catatan Edukasi Dokter
+                  </h2>
+                  <span class="badge badge-primary">Terapi & Edukasi</span>
+                </div>
+                <div class="ws-card-body">
+                  <div class="mb-3">
+                    <label for="resep_obat" class="form-label fw-bold text-dark">
+                      Resep Obat & Terapi Farmasi <span class="required">*</span>
+                    </label>
+                    <textarea 
+                      class="form-control font-monospace" 
+                      id="resep_obat" 
+                      name="resep_obat" 
+                      rows="5" 
+                      placeholder="R/ Nama obat, dosis, frekuensi pakai, jumlah obat..." 
+                      required
+                    >R/ Isosorbide Dinitrate (ISDN) 5mg tab No. X
+S.u.c 1 tab sublingual bila nyeri dada berulang
+R/ Aspilet 80mg tab No. XXX
+S 1 dd 1 tab p.c (sesudah makan siang)
+R/ Atorvastatin 20mg tab No. XXX
+S 1 dd 1 tab nocte (malam hari sebelum tidur)
+R/ Bisoprolol 2.5mg tab No. XXX
+S 1 dd 1 tab mane (pagi hari)</textarea>
+                    <div class="form-text">Catatan resep tersimpan pada rekam medik pasien.</div>
+                  </div>
+
+                  <div class="mb-0">
+                    <label for="catatan_dokter" class="form-label fw-bold text-dark">
+                      Catatan Dokter & Edukasi Pasien
+                    </label>
+                    <textarea 
+                      class="form-control" 
+                      id="catatan_dokter" 
+                      name="catatan_dokter" 
+                      rows="3" 
+                      placeholder="Anjuran makanan, larangan aktivitas, atau edukasi bahaya..."
+                    >Hindari aktivitas fisik berat dan olahraga mendadak. Stop konsumsi rokok dan kurangi makanan berlemak tinggi. Jika nyeri dada menetap lebih dari 20 menit setelah minum ISDN sublingual, segera ke IGD rumah sakit terdekat.</textarea>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Column: Final Status & Actions -->
+            <div class="col-12 col-lg-4">
+
+              <!-- Final Disposition Card -->
+              <div class="ws-card mb-4 border-2 border-primary">
+                <div class="ws-card-header bg-light">
+                  <h2 class="ws-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    Tindak Lanjut & Status Pemeriksaan
+                  </h2>
+                </div>
+                <div class="ws-card-body">
+                  <div class="mb-3">
+                    <label for="status_pemeriksaan" class="form-label">
+                      Tindak Lanjut Pasien <span class="required">*</span>
+                    </label>
+                    <select class="form-select fw-bold" id="status_pemeriksaan" name="status_pemeriksaan" required>
+                      <option value="Selesai" selected>Selesai Pemeriksaan (Rawat Jalan)</option>
+                      <option value="Dalam Tindakan">Dalam Tindakan (Pemeriksaan Lab / Radiologi)</option>
+                      <option value="Kontrol Kembali">Jadwalkan Kontrol Kembali</option>
+                      <option value="Rujuk">Rujuk ke RS / Spesialis Luar</option>
+                    </select>
+                    <div class="form-text">Pilih 'Dalam Tindakan' jika pasien dirujuk ke penunjang.</div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="status_antrean_update" class="form-label">Status Antrean</label>
+                    <input type="text" class="form-control bg-light" id="status_antrean_update" name="status_antrean" value="Selesai / Dalam Tindakan" readonly>
+                    <div class="form-text">Status antrean otomatis disesuaikan di sisi petugas.</div>
+                  </div>
+
+                  <div class="d-grid gap-2 ws-form-actions">
+                    <button type="submit" name="submit_action" value="selesai" class="btn btn-primary btn-lg">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                      </svg>
+                      Simpan & Selesaikan Pemeriksaan
+                    </button>
+                    <button type="submit" name="submit_action" value="dalam_tindakan" class="btn btn-outline-primary">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                      </svg>
+                      Simpan Draf (Rujuk Penunjang / Lab)
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                      Reset Formulir
+                    </button>
+                    <a href="dashboard.html" class="btn btn-outline-danger">
+                      Kembali ke Dashboard
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </form>
+
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>
+

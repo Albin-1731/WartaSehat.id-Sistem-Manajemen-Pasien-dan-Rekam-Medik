@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Pasien - Siti Rahmawati - WartaSehat.id</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Local Custom CSS -->
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body>
+
+  <!-- Pure CSS Mobile Sidebar Toggle Mechanism -->
+  <input type="checkbox" id="sidebarToggle" class="sidebar-toggle-check visually-hidden">
+  <label for="sidebarToggle" class="sidebar-overlay" aria-label="Tutup Menu"></label>
+
+  <div class="ws-app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="ws-sidebar">
+      <div class="ws-sidebar-brand">
+        <div class="ws-brand-logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 6v12M6 12h12"/>
+            <circle cx="12" cy="12" r="10" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <div class="ws-brand-text">
+          <div class="ws-brand-title">WartaSehat<span>.id</span></div>
+          <div class="ws-brand-badge">Petugas Administrasi</div>
+        </div>
+      </div>
+
+      <ul class="ws-sidebar-menu">
+        <li class="ws-menu-header">Menu Utama</li>
+        <li class="ws-menu-item">
+          <a href="dashboard.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </span>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="pendaftaran-pasien.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="8.5" cy="7" r="4"/>
+                <line x1="20" y1="8" x2="20" y2="14"/>
+                <line x1="23" y1="11" x2="17" y2="11"/>
+              </svg>
+            </span>
+            <span>Pendaftaran Pasien</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="daftar-pasien.html" class="ws-menu-link active">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </span>
+            <span>Data Pasien</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="ws-sidebar-footer">
+        <div class="ws-user-card">
+          <div class="ws-user-avatar">BS</div>
+          <div class="ws-user-details">
+            <div class="ws-user-name">Budi Santoso</div>
+            <span class="ws-user-role">Petugas Pendaftaran</span>
+          </div>
+        </div>
+        <a href="../auth/login.html" class="ws-logout-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Keluar Sistem
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="ws-main-wrapper">
+      <!-- Topbar Header -->
+      <header class="ws-topbar">
+        <div class="ws-topbar-left">
+          <label for="sidebarToggle" class="sidebar-toggle-btn" aria-label="Buka Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </label>
+          <nav class="ws-breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="dashboard.html" class="ws-parent">Dashboard</a>
+            <span class="ws-separator">/</span>
+            <a href="daftar-pasien.html" class="ws-parent">Data Pasien</a>
+            <span class="ws-separator">/</span>
+            <span class="ws-current">Detail Pasien</span>
+          </nav>
+        </div>
+
+        <div class="ws-topbar-right">
+          <a href="daftar-pasien.html" class="btn btn-secondary btn-sm">
+            &larr; Kembali ke Data Pasien
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      <main class="ws-content-body">
+        <!-- Patient Hero Card -->
+        <div class="ws-card mb-4">
+          <div class="ws-card-body p-4">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <div class="d-flex align-items-center gap-3">
+                <div class="ws-user-avatar" style="width: 64px; height: 64px; font-size: 1.5rem; background-color: var(--ws-secondary-light); color: var(--ws-secondary);">
+                  SR
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <h1 class="h3 fw-bold mb-0">Siti Rahmawati</h1>
+                    <span class="cell-code fs-6">RM-2026-0012</span>
+                    <span class="badge badge-tindakan">Dalam Tindakan (Lab)</span>
+                  </div>
+                  <!-- Patient Identity List -->
+                  <div class="ws-identity-list">
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">NIK:</span>
+                      <span class="ws-identity-val font-monospace">3304123456780002</span>
+                    </div>
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">Jenis Kelamin:</span>
+                      <span class="ws-identity-val">Perempuan</span>
+                    </div>
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">Usia:</span>
+                      <span class="ws-identity-val">34 Tahun</span>
+                    </div>
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">Terdaftar:</span>
+                      <span class="ws-identity-val">15 Jan 2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Header Action Buttons -->
+              <div class="d-flex gap-2 flex-wrap">
+                <a href="riwayat-rekam-medik-petugas.html" class="btn btn-outline-primary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                  </svg>
+                  Buka Rekam Medik Lengkap
+                </a>
+                <a href="#modal-edit-pasien" class="btn btn-secondary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                  </svg>
+                  Ubah Data
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Left Column: Detailed Demographics (Tabel: `pasien`) -->
+          <div class="col-12 col-lg-7">
+            <div class="ws-card">
+              <div class="ws-card-header">
+                <h2 class="ws-card-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                  Biodata Lengkap Pasien
+                </h2>
+                <span class="badge badge-secondary">Tabel: <code>pasien</code></span>
+              </div>
+              <div class="ws-card-body p-0">
+                <table class="table ws-table mb-0">
+                  <tbody>
+                    <tr>
+                      <td class="text-muted fw-semibold" style="width: 220px;">Nomor Rekam Medis (RM)</td>
+                      <td class="fw-bold font-monospace text-primary">RM-2026-0012</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted fw-semibold">NIK (KTP)</td>
+                      <td class="font-monospace">3304123456780002</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted fw-semibold">Nama Lengkap</td>
+                      <td class="fw-bold">Siti Rahmawati</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted fw-semibold">Tempat, Tanggal Lahir</td>
+                      <td>Bantul, 14 Mei 1992 (Usia: 34 Tahun)</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted fw-semibold">Jenis Kelamin</td>
+                      <td>Perempuan (P)</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted fw-semibold">Golongan Darah</td>
+                      <td><span class="badge badge-secondary">B</span></td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted fw-semibold">Agama</td>
+                      <td>Islam</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted fw-semibold">Status Pernikahan</td>
+                      <td>Menikah</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted fw-semibold">Pekerjaan</td>
+                      <td>Guru Sekolah Dasar</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted fw-semibold">Nomor Telepon / WA</td>
+                      <td class="font-monospace">081398765432</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted fw-semibold">Alamat Domisili</td>
+                      <td>Jl. Anggrek No. 5 RT 03/RW 02, Banguntapan, Bantul, D.I. Yogyakarta</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted fw-semibold">Tanggal Terdaftar</td>
+                      <td>15 Januari 2026</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Status Kunjungan Hari Ini & Riwayat Kunjungan Singkat -->
+          <div class="col-12 col-lg-5">
+            <!-- Current Visit / Queue Card -->
+            <div class="ws-card mb-4 border-primary">
+              <div class="ws-card-header bg-light">
+                <h2 class="ws-card-title text-primary">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  Antrean Hari Ini (Aktif)
+                </h2>
+                <span class="badge badge-tindakan"><span class="status-dot"></span> Dalam Tindakan</span>
+              </div>
+              <div class="ws-card-body">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div>
+                    <div class="text-muted small text-uppercase fw-bold">Nomor Antrean</div>
+                    <div class="display-6 fw-bold text-primary">A-013</div>
+                  </div>
+                  <div class="text-end">
+                    <div class="text-muted small text-uppercase fw-bold">Poli Tujuan</div>
+                    <div class="fw-bold">Poli Penyakit Dalam</div>
+                    <div class="text-muted small">Ruang 102</div>
+                  </div>
+                </div>
+
+                <div class="border-top pt-3">
+                  <div class="small mb-1"><span class="text-muted">Dokter:</span> <strong>dr. Hendra Pratama, Sp.PD</strong></div>
+                  <div class="small mb-1"><span class="text-muted">Waktu Daftar:</span> 08:30 WIB</div>
+                  <div class="small mb-1"><span class="text-muted">Keluhan Awal:</span> Demam berulang sejak 3 hari lalu, sakit kepala berdenyut dan mual ringan.</div>
+                  <div class="small"><span class="text-muted">Tindak Lanjut:</span> <strong class="text-primary">Pemeriksaan Darah Lengkap di Laboratorium</strong></div>
+                </div>
+
+                <div class="mt-3 pt-3 border-top d-flex gap-2">
+                  <a href="#modal-input-hasil-lab" class="btn btn-sm btn-primary w-100">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <line x1="12" y1="18" x2="12" y2="12"/>
+                      <line x1="9" y1="15" x2="15" y2="15"/>
+                    </svg>
+                    Input & Kirim Hasil Lab ke Dokter
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Pure CSS Modal: Ubah Data Pasien (NO JAVASCRIPT NEEDED, uses :target) -->
+  <div id="modal-edit-pasien" class="ws-modal-overlay">
+    <div class="ws-modal-box text-start" style="max-width: 600px;">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="ws-modal-title mb-0">Ubah Data Pasien</h3>
+        <a href="#" class="btn btn-sm btn-secondary" style="line-height: 1; padding: 4px 8px;">&times;</a>
+      </div>
+      <p class="text-muted small mb-3">Perbarui nomor telepon, alamat, atau status kependudukan pasien.</p>
+
+      <form action="detail-pasien.html" method="POST">
+        <input type="hidden" name="id_pasien" value="2">
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label">No. Rekam Medis</label>
+            <input type="text" class="form-control bg-light font-monospace" value="RM-2026-0012" readonly>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">NIK</label>
+            <input type="text" class="form-control bg-light font-monospace" value="3304123456780002" readonly>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Nama Pasien</label>
+          <input type="text" class="form-control" name="nama_pasien" value="Siti Rahmawati" required>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label">No. Telepon / WhatsApp</label>
+            <input type="tel" class="form-control font-monospace" name="no_telepon" value="081398765432" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Pekerjaan</label>
+            <input type="text" class="form-control" name="pekerjaan" value="Guru Sekolah Dasar">
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label">Alamat Lengkap</label>
+          <textarea class="form-control" name="alamat" rows="3" required>Jl. Anggrek No. 5 RT 03/RW 02, Banguntapan, Bantul, D.I. Yogyakarta</textarea>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 ws-modal-actions">
+          <a href="#" class="btn btn-secondary">Batal</a>
+          <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Pure CSS Modal: Input Hasil Tindakan / Lab (Petugas ke Dokter) -->
+  <div id="modal-input-hasil-lab" class="ws-modal-overlay">
+    <div class="ws-modal-box text-start" style="max-width: 600px;">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="ws-modal-title mb-0">Input & Kirim Hasil Penunjang / Lab</h3>
+        <a href="#" class="btn btn-sm btn-secondary" style="line-height: 1; padding: 4px 8px;">&times;</a>
+      </div>
+      <p class="text-muted small mb-3">Masukkan data hasil laboratorium / tindakan untuk diteruskan ke dokter pemeriksa.</p>
+
+      <form action="detail-pasien.html" method="POST">
+        <input type="hidden" name="action" value="kirim_hasil_lab">
+        <input type="hidden" name="id_pasien" value="2">
+        <input type="hidden" name="id_antrean" value="2">
+
+        <div class="p-2 px-3 rounded bg-light border mb-3 small">
+          <div><strong>Pasien:</strong> Siti Rahmawati (RM-2026-0012)</div>
+          <div><strong>Dokter Tujuan:</strong> dr. Hendra Pratama, Sp.PD (Poli Penyakit Dalam)</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Jenis Tindakan / Pemeriksaan</label>
+          <input type="text" class="form-control" name="jenis_tindakan" value="Tes Darah Lengkap & Trombosit" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Rincian Hasil Laboratorium / Catatan Tindakan <span class="text-danger">*</span></label>
+          <textarea class="form-control font-monospace" name="hasil_tindakan" rows="4" placeholder="Contoh: Hb 12.5 g/dL, Leukosit 8.500 /uL, Trombosit 115.000 /uL (Trombositopenia)..." required>Hemoglobin: 12.8 g/dL (Normal)
+Leukosit: 8.400 /uL (Normal)
+Hematokrit: 41 %
+Trombosit: 115.000 /uL (Trombositopenia)
+Kesan: Trombositopenia suspek DHF grade I.</textarea>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 ws-modal-actions">
+          <a href="#" class="btn btn-secondary">Batal</a>
+          <button type="submit" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+            Kirim Hasil ke Dokter
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
+

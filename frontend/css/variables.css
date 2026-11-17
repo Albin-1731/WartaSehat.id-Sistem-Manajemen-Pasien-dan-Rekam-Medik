@@ -1,0 +1,83 @@
+
+:root {
+  /* Brand Primary - Clinical Emerald / Teal */
+  --ws-primary: #0d9488;
+  --ws-primary-hover: #0f766e;
+  --ws-primary-active: #115e59;
+  --ws-primary-light: #ccfbf1;
+  --ws-primary-subtle: #f0fdfa;
+  --ws-primary-focus: rgba(13, 148, 136, 0.25);
+
+  /* Secondary Accent - Ocean Health Blue */
+  --ws-secondary: #0284c7;
+  --ws-secondary-hover: #0369a1;
+  --ws-secondary-light: #e0f2fe;
+  --ws-secondary-subtle: #f0f9ff;
+
+  /* Surfaces & Backgrounds */
+  --ws-bg-page: #f8fafc;
+  --ws-bg-surface: #ffffff;
+  --ws-bg-surface-glass: rgba(255, 255, 255, 0.88);
+  --ws-bg-surface-glass-dark: rgba(248, 250, 252, 0.92);
+  --ws-bg-subtle: #f1f5f9;
+  --ws-bg-sidebar: #ffffff;
+
+  /* Borders & Dividers */
+  --ws-border-color: #e2e8f0;
+  --ws-border-light: #f1f5f9;
+  --ws-border-focus: #0d9488;
+  --ws-border-glass: rgba(255, 255, 255, 0.65);
+
+  /* Typography Colors */
+  --ws-text-main: #0f172a;
+  --ws-text-body: #334155;
+  --ws-text-muted: #64748b;
+  --ws-text-light: #94a3b8;
+  --ws-text-white: #ffffff;
+
+  /* Status Colors */
+  --ws-success: #10b981;
+  --ws-success-bg: #ecfdf5;
+  --ws-success-border: #a7f3d0;
+  --ws-success-text: #065f46;
+
+  --ws-warning: #f59e0b;
+  --ws-warning-bg: #fffbeb;
+  --ws-warning-border: #fde68a;
+  --ws-warning-text: #92400e;
+
+  --ws-danger: #ef4444;
+  --ws-danger-bg: #fef2f2;
+  --ws-danger-border: #fecaca;
+  --ws-danger-text: #991b1b;
+
+  --ws-info: #0284c7;
+  --ws-info-bg: #f0f9ff;
+  --ws-info-border: #bae6fd;
+  --ws-info-text: #075985;
+
+  /* Typography Settings */
+  --ws-font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --ws-font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Shadows */
+  --ws-shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --ws-shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --ws-shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+  --ws-shadow-glass: 0 8px 32px 0 rgba(15, 23, 42, 0.06);
+
+  /* Radius */
+  --ws-radius-sm: 6px;
+  --ws-radius-md: 10px;
+  --ws-radius-lg: 16px;
+  --ws-radius-xl: 22px;
+  --ws-radius-full: 9999px;
+
+  /* Transitions */
+  --ws-transition: all 0.2s ease-in-out;
+  --ws-transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout dimensions */
+  --ws-sidebar-width: 260px;
+  --ws-header-height: 70px;
+}

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antrean Poliklinik - WartaSehat.id</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Local Custom CSS -->
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body>
+
+  <!-- Pure CSS Mobile Sidebar Toggle Mechanism-->
+  <input type="checkbox" id="sidebarToggle" class="sidebar-toggle-check visually-hidden">
+  <label for="sidebarToggle" class="sidebar-overlay" aria-label="Tutup Menu"></label>
+
+  <div class="ws-app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="ws-sidebar">
+      <div class="ws-sidebar-brand">
+        <div class="ws-brand-logo" style="background: linear-gradient(135deg, var(--ws-secondary) 0%, var(--ws-primary) 100%);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="ws-brand-text">
+          <div class="ws-brand-title">WartaSehat<span>.id</span></div>
+          <div class="ws-brand-badge">Portal Dokter</div>
+        </div>
+      </div>
+
+      <ul class="ws-sidebar-menu">
+        <li class="ws-menu-header">Menu Pemeriksaan</li>
+        <li class="ws-menu-item">
+          <a href="dashboard.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </span>
+            <span>Dashboard Dokter</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="antrean-poli.html" class="ws-menu-link active">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </span>
+            <span>Antrean Poliklinik</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="detail-pemeriksaan.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" y1="15" x2="15" y2="15"/>
+              </svg>
+            </span>
+            <span>Pemeriksaan Pasien</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="ws-sidebar-footer">
+        <div class="ws-user-card">
+          <div class="ws-user-avatar" style="background-color: var(--ws-secondary-light); color: var(--ws-secondary);">
+            HP
+          </div>
+          <div class="ws-user-details">
+            <div class="ws-user-name">dr. Hendra Pratama, Sp.PD</div>
+            <span class="ws-user-role">Spesialis Penyakit Dalam</span>
+          </div>
+        </div>
+        <a href="../auth/login.html" class="ws-logout-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Keluar Sistem
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="ws-main-wrapper">
+      <!-- Topbar Header -->
+      <header class="ws-topbar">
+        <div class="ws-topbar-left">
+          <label for="sidebarToggle" class="sidebar-toggle-btn" aria-label="Buka Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </label>
+          <nav class="ws-breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="dashboard.html" class="ws-parent">Portal Dokter</a>
+            <span class="ws-separator">/</span>
+            <span class="ws-current">Antrean Poliklinik</span>
+          </nav>
+        </div>
+
+        <div class="ws-topbar-right">
+          <a href="dashboard.html" class="btn btn-secondary btn-sm">
+            &larr; Dashboard Dokter
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      <main class="ws-content-body">
+        <div class="d-flex justify-content-between align-items-center mb-4 ws-page-header">
+          <div>
+            <h1 class="h3 fw-bold mb-1">Manajemen Antrean Poliklinik</h1>
+          </div>
+        </div>
+
+        <!-- Filter Tab Links (Interactive Category Pills) -->
+        <div class="d-flex gap-2 mb-4 flex-wrap" id="categoryTabContainer">
+          <button type="button" class="btn btn-sm btn-primary category-tab-btn active" data-filter="all">
+            Semua Antrean (<span id="count-all">6</span>)
+          </button>
+          <button type="button" class="btn btn-sm btn-secondary category-tab-btn" data-filter="Sedang Diperiksa">
+            Sedang Diperiksa (<span id="count-periksa">1</span>)
+          </button>
+          <button type="button" class="btn btn-sm btn-secondary category-tab-btn" data-filter="Dalam Tindakan">
+            Dalam Tindakan (<span id="count-tindakan">1</span>)
+          </button>
+          <button type="button" class="btn btn-sm btn-secondary category-tab-btn" data-filter="Menunggu">
+            Menunggu (<span id="count-menunggu">4</span>)
+          </button>
+        </div>
+
+        <!-- Search & Filter Bar -->
+        <div class="ws-card mb-4">
+          <div class="ws-card-body p-3">
+            <form id="antreanFilterForm" action="antrean-poli.html" method="GET" class="d-flex gap-3 align-items-center flex-wrap ws-filter-bar">
+              <div class="input-group" style="flex: 2; min-width: 250px;">
+                <span class="input-group-text bg-white">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  </svg>
+                </span>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="searchAntreanInput"
+                  name="search" 
+                  placeholder="Cari No. Antrean, Nama Pasien, atau No. RM lalu tekan Enter..." 
+                  value=""
+                >
+              </div>
+
+              <div style="flex: 1; min-width: 170px;">
+                <select id="statusAntreanSelect" name="status" class="form-select">
+                  <option value="">Status Antrean (Semua)</option>
+                  <option value="Menunggu">Menunggu</option>
+                  <option value="Sedang Diperiksa">Sedang Diperiksa</option>
+                  <option value="Dalam Tindakan">Dalam Tindakan</option>
+                </select>
+              </div>
+
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Filter</button>
+                <button type="button" id="resetFilterBtn" class="btn btn-secondary">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Section 1: Daftar Pasien Dalam Tindakan / Penunjang (Dipisah Tersendiri) -->
+        <div class="ws-card mb-4" id="section-antrean-tindakan">
+          <div class="ws-card-header bg-light-subtle">
+            <div>
+              <h2 class="ws-card-title text-purple" style="color: #6366f1;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  <path d="M12 5v14"/>
+                </svg>
+                Daftar Pasien Dalam Tindakan / Penunjang
+              </h2>
+              <div class="ws-card-subtitle">Pasien yang sedang menunggu atau menjalani pemeriksaan lab / radiologi / prosedur khusus</div>
+            </div>
+            <div class="ws-card-actions">
+              <span class="badge badge-tindakan">Khusus Tindakan</span>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table ws-table align-middle" id="table-tindakan">
+              <thead>
+                <tr>
+                  <th style="width: 110px;">No. Antrean</th>
+                  <th style="width: 90px;">Waktu</th>
+                  <th style="width: 140px;">No. RM</th>
+                  <th>Nama Lengkap Pasien</th>
+                  <th>Usia / JK</th>
+                  <th>Tindakan / Prosedur</th>
+                  <th>Status</th>
+                  <th class="text-center" style="width: 220px;">Aksi Pemeriksaan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- 1. Dalam Tindakan: Siti Rahmawati -->
+                <tr class="antrean-item-row" data-status="Dalam Tindakan" data-search="a-013 siti rahmawati rm-2026-0012 guru sd demam tes darah lab">
+                  <td>
+                    <span class="badge badge-tindakan fw-bold fs-6">A-013</span>
+                  </td>
+                  <td class="text-muted small">08:30 WIB</td>
+                  <td>
+                    <span class="cell-code">RM-2026-0012</span>
+                  </td>
+                  <td>
+                    <div class="fw-bold">Siti Rahmawati</div>
+                    <div class="text-muted small">Pekerjaan: Guru SD</div>
+                  </td>
+                  <td>34 Thn / P</td>
+                  <td class="small">
+                    <span class="badge bg-purple-subtle text-purple fw-semibold p-1 px-2 border" style="background-color: #f5f3ff; color: #7c3aed; border-color: #ddd6fe !important;">
+                      Tes Darah Lab
+                    </span>
+                    <div class="text-muted small mt-1">Demam 3 hari naik turun</div>
+                  </td>
+                  <td>
+                    <span class="badge bg-success text-white">
+                      <span class="status-dot bg-white"></span> Hasil Siap Ditinjau
+                    </span>
+                    <div class="text-success small mt-1 fw-semibold" style="font-size: 0.72rem;">Hasil Terkirim dari Petugas</div>
+                  </td>
+                  <td class="text-center">
+                    <div class="d-flex justify-content-center gap-1">
+                      <a href="detail-pemeriksaan.html" class="btn btn-sm btn-primary" title="Tinjau Hasil & Selesaikan">
+                        Tinjau & Selesaikan
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 2: Queue Management Table (Antrean Utama Poliklinik) -->
+        <div class="ws-card" id="section-antrean-utama">
+          <div class="ws-card-header">
+            <div>
+              <h2 class="ws-card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                Daftar Panggilan Antrean Pasien
+              </h2>
+              <div class="ws-card-subtitle">Urutan pemanggilan pasien poli berurutan berdasarkan waktu kedatangan</div>
+            </div>
+            <div class="ws-card-actions">
+              <span class="badge badge-secondary">Tabel: <code>antrean_poli</code></span>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table ws-table align-middle" id="table-utama">
+              <thead>
+                <tr>
+                  <th style="width: 110px;">No. Antrean</th>
+                  <th style="width: 90px;">Waktu</th>
+                  <th style="width: 140px;">No. RM</th>
+                  <th>Nama Lengkap Pasien</th>
+                  <th>Usia / JK</th>
+                  <th>Keluhan Awal Pasien</th>
+                  <th>Status</th>
+                  <th class="text-center" style="width: 220px;">Aksi Pemeriksaan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- 1. Sedang Diperiksa -->
+                <tr class="table-primary-subtle antrean-item-row" data-status="Sedang Diperiksa" data-search="a-012 ahmad fauzi rm-2026-0038 wiraswasta nyeri dada">
+                  <td>
+                    <span class="badge badge-primary fw-bold fs-6">A-012</span>
+                  </td>
+                  <td class="text-muted small">08:15 WIB</td>
+                  <td>
+                    <span class="cell-code">RM-2026-0038</span>
+                  </td>
+                  <td>
+                    <div class="fw-bold">Ahmad Fauzi</div>
+                    <div class="text-muted small">Pekerjaan: Wiraswasta</div>
+                  </td>
+                  <td>45 Thn / L</td>
+                  <td class="small">Nyeri dada sebelah kiri tembus punggung, sesak napas ringan</td>
+                  <td>
+                    <span class="badge badge-primary">
+                      <span class="status-dot"></span> Sedang Diperiksa
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <div class="d-flex justify-content-center gap-1">
+                      <a href="detail-pemeriksaan.html" class="btn btn-sm btn-primary">
+                        Input Rekam Medik &rarr;
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- 2. Menunggu: Hendro Gunawan -->
+                <tr class="antrean-item-row" data-status="Menunggu" data-search="a-014 hendro gunawan rm-2026-0050 karyawan swasta nyeri lambung">
+                  <td>
+                    <span class="badge badge-warning fw-bold fs-6">A-014</span>
+                  </td>
+                  <td class="text-muted small">08:50 WIB</td>
+                  <td>
+                    <span class="cell-code">RM-2026-0050</span>
+                  </td>
+                  <td>
+                    <div class="fw-bold">Hendro Gunawan</div>
+                    <div class="text-muted small">Pekerjaan: Karyawan Swasta</div>
+                  </td>
+                  <td>52 Thn / L</td>
+                  <td class="small">Nyeri lambung perih setelah makan asam dan kopi</td>
+                  <td>
+                    <span class="badge badge-warning">
+                      <span class="status-dot"></span> Menunggu
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <div class="d-flex justify-content-center gap-1">
+                      <a href="detail-pemeriksaan.html" class="btn btn-sm btn-outline-primary">
+                        Panggil & Periksa
+                      </a>
+                      <a href="#modal-lewati-antrean" class="btn btn-sm btn-secondary">
+                        Lewati
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- 3. Menunggu: Nurul Hidayah -->
+                <tr class="antrean-item-row" data-status="Menunggu" data-search="a-015 nurul hidayah rm-2026-0052 ibu rumah tangga mual pusing">
+                  <td>
+                    <span class="badge badge-warning fw-bold fs-6">A-015</span>
+                  </td>
+                  <td class="text-muted small">09:05 WIB</td>
+                  <td>
+                    <span class="cell-code">RM-2026-0052</span>
+                  </td>
+                  <td>
+                    <div class="fw-bold">Nurul Hidayah</div>
+                    <div class="text-muted small">Pekerjaan: Ibu Rumah Tangga</div>
+                  </td>
+                  <td>28 Thn / P</td>
+                  <td class="small">Mual dan pusing berputar sejak pagi, lemas</td>
+                  <td>
+                    <span class="badge badge-warning">
+                      <span class="status-dot"></span> Menunggu
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <div class="d-flex justify-content-center gap-1">
+                      <a href="detail-pemeriksaan.html" class="btn btn-sm btn-outline-primary">
+                        Panggil & Periksa
+                      </a>
+                      <a href="#modal-lewati-antrean" class="btn btn-sm btn-secondary">
+                        Lewati
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- 4. Menunggu: Tri Wahyuni -->
+                <tr class="antrean-item-row" data-status="Menunggu" data-search="a-016 tri wahyuni rm-2026-0055 mahasiswa batuk kering demam">
+                  <td>
+                    <span class="badge badge-warning fw-bold fs-6">A-016</span>
+                  </td>
+                  <td class="text-muted small">09:20 WIB</td>
+                  <td>
+                    <span class="cell-code">RM-2026-0055</span>
+                  </td>
+                  <td>
+                    <div class="fw-bold">Tri Wahyuni</div>
+                    <div class="text-muted small">Pekerjaan: Mahasiswa</div>
+                  </td>
+                  <td>21 Thn / P</td>
+                  <td class="small">Batuk kering lebih dari seminggu disertai demam ringan</td>
+                  <td>
+                    <span class="badge badge-warning">
+                      <span class="status-dot"></span> Menunggu
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <div class="d-flex justify-content-center gap-1">
+                      <a href="detail-pemeriksaan.html" class="btn btn-sm btn-outline-primary">
+                        Panggil & Periksa
+                      </a>
+                      <a href="#modal-lewati-antrean" class="btn btn-sm btn-secondary">
+                        Lewati
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- 5. Menunggu: Joko Susilo -->
+                <tr class="antrean-item-row" data-status="Menunggu" data-search="a-017 joko susilo rm-2026-0058 sopir nyeri pinggang lutut bengkak">
+                  <td>
+                    <span class="badge badge-warning fw-bold fs-6">A-017</span>
+                  </td>
+                  <td class="text-muted small">09:40 WIB</td>
+                  <td>
+                    <span class="cell-code">RM-2026-0058</span>
+                  </td>
+                  <td>
+                    <div class="fw-bold">Joko Susilo</div>
+                    <div class="text-muted small">Pekerjaan: Sopir</div>
+                  </td>
+                  <td>39 Thn / L</td>
+                  <td class="small">Nyeri pinggang dan lutut kanan bengkak</td>
+                  <td>
+                    <span class="badge badge-warning">
+                      <span class="status-dot"></span> Menunggu
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <div class="d-flex justify-content-center gap-1">
+                      <a href="detail-pemeriksaan.html" class="btn btn-sm btn-outline-primary">
+                        Panggil & Periksa
+                      </a>
+                      <a href="#modal-lewati-antrean" class="btn btn-sm btn-secondary">
+                        Lewati
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="ws-card-footer" id="antrean-footer-info">
+            <div class="text-muted small" id="footer-text">
+              Menampilkan 5 antrean pasien aktif di Poli Penyakit Dalam hari ini
+            </div>
+            <!-- Pagination Controls (Pure HTML Links) -->
+            <ul class="pagination">
+              <li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Pure CSS Modal: Lewati Antrean Pasien (NO JAVASCRIPT NEEDED, uses :target) -->
+  <div id="modal-lewati-antrean" class="ws-modal-overlay">
+    <div class="ws-modal-box">
+      <div class="ws-modal-icon-danger" style="background-color: var(--ws-warning-bg); color: var(--ws-warning);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+      <h3 class="ws-modal-title">Lewati Antrean Pasien?</h3>
+      <p class="ws-modal-desc">
+        Pasien akan dipindahkan sementara ke urutan panggilan berikutnya apabila belum berada di ruang tunggu poliklinik.
+      </p>
+
+      <form action="antrean-poli.html" method="POST">
+        <input type="hidden" name="action" value="skip_queue">
+        <input type="hidden" name="id_antrean" value="2">
+        <div class="ws-modal-actions">
+          <a href="#" class="btn btn-secondary">Batal</a>
+          <button type="submit" class="btn btn-primary">Ya, Lewati Antrean</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('antreanFilterForm');
+      const searchInput = document.getElementById('searchAntreanInput');
+      const statusSelect = document.getElementById('statusAntreanSelect');
+      const resetBtn = document.getElementById('resetFilterBtn');
+      const tabBtns = document.querySelectorAll('.category-tab-btn');
+      
+      const secTindakan = document.getElementById('section-antrean-tindakan');
+      const secUtama = document.getElementById('section-antrean-utama');
+      const tbodyTindakan = document.querySelector('#table-tindakan tbody');
+      const tbodyUtama = document.querySelector('#table-utama tbody');
+      const footerText = document.getElementById('footer-text');
+
+      let currentTab = 'all';
+
+      function createEmptyRow(colSpan, message, desc) {
+        return `
+          <tr class="empty-state-row">
+            <td colspan="${colSpan}" class="text-center py-5">
+              <div class="ws-empty-state">
+                <div class="ws-empty-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  </svg>
+                </div>
+                <div class="ws-empty-title">${message || 'Tidak ada data antrean'}</div>
+                <div class="ws-empty-desc">${desc || 'Tidak ada pasien dalam kategori atau kriteria pencarian ini.'}</div>
+              </div>
+            </td>
+          </tr>
+        `;
+      }
+
+      function filterRows() {
+        const query = (searchInput.value || '').trim().toLowerCase();
+        const selectedStatus = statusSelect.value;
+        const activeFilter = currentTab !== 'all' ? currentTab : selectedStatus;
+
+        let visibleUtamaCount = 0;
+        let visibleTindakanCount = 0;
+
+        // Filter Rows in Section Tindakan
+        const rowsTindakan = tbodyTindakan.querySelectorAll('.antrean-item-row');
+        tbodyTindakan.querySelectorAll('.empty-state-row').forEach(el => el.remove());
+
+        rowsTindakan.forEach(row => {
+          const rowStatus = row.getAttribute('data-status');
+          const rowSearch = (row.getAttribute('data-search') || '').toLowerCase();
+          const matchQuery = !query || rowSearch.includes(query);
+          const matchStatus = !activeFilter || rowStatus.toLowerCase() === activeFilter.toLowerCase();
+
+          if (matchQuery && matchStatus) {
+            row.style.display = '';
+            visibleTindakanCount++;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        // Filter Rows in Section Utama
+        const rowsUtama = tbodyUtama.querySelectorAll('.antrean-item-row');
+        tbodyUtama.querySelectorAll('.empty-state-row').forEach(el => el.remove());
+
+        rowsUtama.forEach(row => {
+          const rowStatus = row.getAttribute('data-status');
+          const rowSearch = (row.getAttribute('data-search') || '').toLowerCase();
+          const matchQuery = !query || rowSearch.includes(query);
+          const matchStatus = !activeFilter || rowStatus.toLowerCase() === activeFilter.toLowerCase();
+
+          if (matchQuery && matchStatus) {
+            row.style.display = '';
+            visibleUtamaCount++;
+          } else {
+            row.style.display = 'none';
+          }
+        });
+
+        // Tampilkan/Sembunyikan Section berdasarkan Tab aktif
+        if (activeFilter === 'Dalam Tindakan') {
+          secTindakan.style.display = '';
+          secUtama.style.display = 'none';
+        } else if (activeFilter === 'Sedang Diperiksa' || activeFilter === 'Menunggu') {
+          secTindakan.style.display = 'none';
+          secUtama.style.display = '';
+        } else {
+          secTindakan.style.display = '';
+          secUtama.style.display = '';
+        }
+
+        // Handle Empty States
+        if (secTindakan.style.display !== 'none' && visibleTindakanCount === 0) {
+          tbodyTindakan.insertAdjacentHTML('beforeend', createEmptyRow(8, query ? 'Data tidak ditemukan' : 'Tidak ada data antrean tindakan', 'Tidak ada antrean dalam proses tindakan saat ini.'));
+        }
+
+        if (secUtama.style.display !== 'none' && visibleUtamaCount === 0) {
+          tbodyUtama.insertAdjacentHTML('beforeend', createEmptyRow(8, query ? 'Data tidak ditemukan' : 'Tidak ada data antrean', 'Tidak ada pasien dalam kategori atau kriteria pencarian ini.'));
+        }
+
+        const totalVisible = (secTindakan.style.display !== 'none' ? visibleTindakanCount : 0) + 
+                             (secUtama.style.display !== 'none' ? visibleUtamaCount : 0);
+        
+        if (footerText) {
+          footerText.textContent = `Menampilkan ${totalVisible} antrean pasien aktif`;
+        }
+      }
+
+      // Tab Buttons Click
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          tabBtns.forEach(b => {
+            b.classList.remove('btn-primary', 'active');
+            b.classList.add('btn-secondary');
+          });
+          this.classList.remove('btn-secondary');
+          this.classList.add('btn-primary', 'active');
+
+          currentTab = this.getAttribute('data-filter');
+          if (currentTab !== 'all') {
+            statusSelect.value = currentTab;
+          } else {
+            statusSelect.value = '';
+          }
+          filterRows();
+        });
+      });
+
+      // Form Search & Enter
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        filterRows();
+      });
+
+      searchInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          filterRows();
+        }
+      });
+
+      statusSelect.addEventListener('change', function () {
+        const val = this.value;
+        currentTab = val || 'all';
+        tabBtns.forEach(b => {
+          if (b.getAttribute('data-filter') === (val || 'all')) {
+            b.classList.remove('btn-secondary');
+            b.classList.add('btn-primary', 'active');
+          } else {
+            b.classList.remove('btn-primary', 'active');
+            b.classList.add('btn-secondary');
+          }
+        });
+        filterRows();
+      });
+
+      resetBtn.addEventListener('click', function () {
+        searchInput.value = '';
+        statusSelect.value = '';
+        currentTab = 'all';
+        tabBtns.forEach(b => {
+          if (b.getAttribute('data-filter') === 'all') {
+            b.classList.remove('btn-secondary');
+            b.classList.add('btn-primary', 'active');
+          } else {
+            b.classList.remove('btn-primary', 'active');
+            b.classList.add('btn-secondary');
+          }
+        });
+        filterRows();
+      });
+
+      // Initial filter run
+      filterRows();
+    });
+  </script>
+</body>
+</html>
+

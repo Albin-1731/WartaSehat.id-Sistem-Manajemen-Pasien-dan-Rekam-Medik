@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riwayat Rekam Medik Pasien - Portal Dokter - WartaSehat.id</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Local Custom CSS -->
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body>
+
+  <!-- Pure CSS Mobile Sidebar Toggle Mechanism -->
+  <input type="checkbox" id="sidebarToggle" class="sidebar-toggle-check visually-hidden">
+  <label for="sidebarToggle" class="sidebar-overlay" aria-label="Tutup Menu"></label>
+
+  <div class="ws-app-layout">
+    <!-- Sidebar Navigation Portal Dokter -->
+    <aside class="ws-sidebar">
+      <div class="ws-sidebar-brand">
+        <div class="ws-brand-logo" style="background: linear-gradient(135deg, var(--ws-secondary) 0%, var(--ws-primary) 100%);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="ws-brand-text">
+          <div class="ws-brand-title">WartaSehat<span>.id</span></div>
+          <div class="ws-brand-badge">Portal Dokter</div>
+        </div>
+      </div>
+
+      <ul class="ws-sidebar-menu">
+        <li class="ws-menu-header">Menu Pemeriksaan</li>
+        <li class="ws-menu-item">
+          <a href="dashboard.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </span>
+            <span>Dashboard Dokter</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="antrean-poli.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </span>
+            <span>Antrean Poliklinik</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="detail-pemeriksaan.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" y1="15" x2="15" y2="15"/>
+              </svg>
+            </span>
+            <span>Pemeriksaan Pasien</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="ws-sidebar-footer">
+        <div class="ws-user-card">
+          <div class="ws-user-avatar" style="background-color: var(--ws-secondary-light); color: var(--ws-secondary);">
+            HP
+          </div>
+          <div class="ws-user-details">
+            <div class="ws-user-name">dr. Hendra Pratama, Sp.PD</div>
+            <span class="ws-user-role">Spesialis Penyakit Dalam</span>
+          </div>
+        </div>
+        <a href="../auth/login.html" class="ws-logout-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Keluar Sistem
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="ws-main-wrapper">
+      <!-- Topbar Header -->
+      <header class="ws-topbar">
+        <div class="ws-topbar-left">
+          <label for="sidebarToggle" class="sidebar-toggle-btn" aria-label="Buka Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </label>
+          <nav class="ws-breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="dashboard.html" class="ws-parent">Portal Dokter</a>
+            <span class="ws-separator">/</span>
+            <a href="detail-pemeriksaan.html" class="ws-parent">Pemeriksaan Pasien</a>
+            <span class="ws-separator">/</span>
+            <span class="ws-current">Arsip Rekam Medik</span>
+          </nav>
+        </div>
+
+        <div class="ws-topbar-right">
+          <a href="detail-pemeriksaan.html" class="btn btn-primary btn-sm">
+            &larr; Kembali ke Pemeriksaan
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      <main class="ws-content-body">
+        <!-- Patient Info Header Banner -->
+        <div class="ws-card mb-4 bg-white border-2 border-primary-subtle">
+          <div class="ws-card-body p-4">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+              <div class="d-flex align-items-center gap-3">
+                <div class="ws-user-avatar" style="width: 56px; height: 56px; font-size: 1.35rem; background-color: var(--ws-primary-light); color: var(--ws-primary);">
+                  AF
+                </div>
+                <div>
+                  <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <h1 class="h4 fw-bold mb-0">Riwayat Rekam Medis: Ahmad Fauzi</h1>
+                    <span class="cell-code">RM-2026-0038</span>
+                    <span class="badge badge-primary">Antrean Aktif: A-012</span>
+                  </div>
+                  <!-- Patient Identity List (Structured Info) -->
+                  <div class="ws-identity-list">
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">NIK:</span>
+                      <span class="ws-identity-val">3304123456780001</span>
+                    </div>
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">Jenis Kelamin:</span>
+                      <span class="ws-identity-val">Laki-laki</span>
+                    </div>
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">Usia:</span>
+                      <span class="ws-identity-val">45 Tahun</span>
+                    </div>
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">Golongan Darah:</span>
+                      <span class="ws-identity-val">O</span>
+                    </div>
+                    <div class="ws-identity-item">
+                      <span class="ws-identity-label">Total Riwayat:</span>
+                      <span class="ws-identity-val">3 Kunjungan</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex gap-2">
+                <a href="detail-pemeriksaan.html" class="btn btn-primary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="12" y1="18" x2="12" y2="12"/>
+                    <line x1="9" y1="15" x2="15" y2="15"/>
+                  </svg>
+                  Lanjutkan Pemeriksaan Pasien
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Records Bar (Form method GET) -->
+        <div class="ws-card mb-4">
+          <div class="ws-card-body p-3">
+            <form action="riwayat-rekam-medik-dokter.html" method="GET" class="d-flex gap-3 align-items-center flex-wrap ws-filter-bar">
+              <input type="hidden" name="nomor_rm" value="RM-2026-0038">
+              <div class="d-flex align-items-center gap-2" style="flex: 1; min-width: 200px;">
+                <label for="dari_tanggal" class="form-label mb-0 small text-nowrap fw-bold">Dari Tanggal:</label>
+                <input type="date" class="form-control form-control-sm" id="dari_tanggal" name="dari_tanggal" value="2025-01-01">
+              </div>
+              <div class="d-flex align-items-center gap-2" style="flex: 1; min-width: 200px;">
+                <label for="sampai_tanggal" class="form-label mb-0 small text-nowrap fw-bold">Sampai Tanggal:</label>
+                <input type="date" class="form-control form-control-sm" id="sampai_tanggal" name="sampai_tanggal" value="2026-11-16">
+              </div>
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-sm btn-primary">Filter Periode</button>
+                <a href="riwayat-rekam-medik-dokter.html" class="btn btn-sm btn-secondary">Reset</a>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Timeline of Medical Records for Ahmad Fauzi (Accordion Style - Synchronized with Petugas) -->
+        <div class="d-flex flex-column gap-3">
+
+          <!-- Encounter 1: Kunjungan #3 (Kunjungan Aktif Hari Ini) -->
+          <details class="ws-encounter-accordion is-active" open>
+            <summary class="ws-encounter-summary">
+              <div class="d-flex align-items-center gap-3 flex-wrap">
+                <span class="badge badge-primary fs-6 fw-bold">Kunjungan #3</span>
+                <div>
+                  <h2 class="h5 fw-bold mb-0">Senin, 16 November 2026 &bull; 08:15 WIB</h2>
+                  <div class="text-muted small">Poli Penyakit Dalam</div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge badge-primary">
+                  <span class="status-dot"></span> Aktif
+                </span>
+                <span class="ws-accordion-chevron" title="Buka/Tutup Detail">&#9662;</span>
+              </div>
+            </summary>
+
+            <div class="ws-encounter-body border-top">
+              <!-- Dokter Penanggung Jawab Kunjungan Ini -->
+              <div class="d-flex align-items-center justify-content-between p-2 px-3 rounded bg-light border mb-4 flex-wrap gap-2">
+                <div>
+                  <span class="text-muted small">Dokter Pemeriksa:</span>
+                  <span class="fw-bold text-dark ms-1">dr. Hendra Pratama, Sp.PD</span>
+                  <span class="badge badge-secondary ms-2">Poli Penyakit Dalam</span>
+                </div>
+                <span class="badge badge-primary">Sesi Pemeriksaan Aktif Hari Ini</span>
+              </div>
+
+              <!-- 1. Pemeriksaan Awal -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-primary mb-2">1. Pemeriksaan Awal (Vital Signs & Fisik Awal)</div>
+                <div class="ws-vitals-grid mb-3">
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Tekanan Darah</div>
+                    <div class="ws-vital-value">135/85 <span class="ws-vital-unit">mmHg</span></div>
+                    <span class="ws-vital-status vital-warning">Pre-Hipertensi</span>
+                  </div>
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Suhu Tubuh</div>
+                    <div class="ws-vital-value">36.7 <span class="ws-vital-unit">&deg;C</span></div>
+                    <span class="ws-vital-status vital-normal">Normal</span>
+                  </div>
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Berat Badan</div>
+                    <div class="ws-vital-value">68.0 <span class="ws-vital-unit">kg</span></div>
+                    <span class="ws-vital-status vital-normal">Ideal</span>
+                  </div>
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Tinggi Badan</div>
+                    <div class="ws-vital-value">172 <span class="ws-vital-unit">cm</span></div>
+                    <span class="ws-vital-status vital-normal">BMI: 23.0</span>
+                  </div>
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Denyut Nadi</div>
+                    <div class="ws-vital-value">88 <span class="ws-vital-unit">x/mnt</span></div>
+                    <span class="ws-vital-status vital-normal">Reguler</span>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded border h-100">
+                      <div class="fw-bold text-dark small mb-1">Anamnesis / Riwayat Penyakit Sekarang:</div>
+                      <p class="mb-0 small text-muted">
+                        Pasien mengeluhkan rasa berat dan nyeri dada sebelah kiri yang dirasakan sejak kemarin malam setelah bermain bulu tangkis. Nyeri terasa menjalar ke punggung dan bahu kiri.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded border h-100">
+                      <div class="fw-bold text-dark small mb-1">Pemeriksaan Fisik & Riwayat Alergi:</div>
+                      <p class="mb-0 small text-muted">
+                        Keadaan umum lelah, compos mentis. Cor S1-S2 murni reguler. Tidak ada riwayat alergi obat/makanan yang dilaporkan.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Diagnosis Awal & Tindakan -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-primary mb-2">2. Diagnosis Awal & Tindakan Medis</div>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded border h-100">
+                      <div class="fw-bold text-dark small mb-1">Diagnosis Awal (Suspect):</div>
+                      <div class="fw-bold text-warning font-monospace">Suspect Ischemic Heart Disease / Angina Pectoris</div>
+                      <div class="text-muted small mt-1">Diagnosis kerja sebelum tindakan dan evaluasi penunjang.</div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded border h-100">
+                      <div class="fw-bold text-dark small mb-1">Tindakan Medis / Rujukan:</div>
+                      <p class="mb-0 small text-muted">
+                        Pemeriksaan EKG 12 Lead (ST depresi 1mm di lead V4-V6), pemberian oksigen nasal kanul 3 Lpm, tirah baring.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Pemeriksaan Akhir -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-primary mb-2">3. Pemeriksaan Akhir (Evaluasi Pasca Tindakan)</div>
+                <div class="p-3 bg-light rounded border">
+                  <div class="d-flex gap-3 flex-wrap small">
+                    <div><strong>TD Akhir:</strong> 125/80 mmHg</div>
+                    <div><strong>Suhu:</strong> 36.5 &deg;C</div>
+                    <div><strong>Nadi:</strong> 82 x/mnt</div>
+                    <div><strong>Evaluasi Respon:</strong> Nyeri dada berangsur reda dan berkurang signifikan pasca tirah baring dan O2.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Diagnosis Akhir -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-primary mb-2">4. Diagnosis Akhir (Definitif)</div>
+                <div class="p-3 bg-light rounded border">
+                  <div class="fw-bold text-danger fs-6 font-monospace">I20.9 - Angina Pectoris, Unspecified</div>
+                  <div class="text-muted small">Iskemia miokardial reversibel akibat beban aktivitas fisik berlebih.</div>
+                </div>
+              </div>
+
+              <!-- 5. Resep & Catatan -->
+              <div>
+                <div class="text-uppercase small fw-bold text-primary mb-2">5. Resep Obat & Catatan / Edukasi Pasien</div>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded border h-100">
+                      <div class="fw-bold text-dark small mb-1">Resep Terapi:</div>
+                      <ul class="mb-0 small ps-3">
+                        <li>ISDN 5mg tab No. X &mdash; 1 tab sublingual prn nyeri</li>
+                        <li>Aspilet 80mg tab No. XXX &mdash; 1x1 tab p.c siang</li>
+                        <li>Atorvastatin 20mg tab No. XXX &mdash; 1x1 tab malam</li>
+                        <li>Bisoprolol 2.5mg tab No. XXX &mdash; 1x1 tab pagi</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded border h-100">
+                      <div class="fw-bold text-dark small mb-1">Catatan & Edukasi:</div>
+                      <p class="mb-0 small text-muted">
+                        Hindari aktivitas fisik berat mendadak. Stop merokok. Bila nyeri menetap &gt; 20 menit pasca ISDN segera ke IGD.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </details>
+
+          <!-- Encounter 2: Lampau (10 Januari 2026) - Kunjungan Selesai (Warna Abu-Abu Muted) -->
+          <details class="ws-encounter-accordion is-selesai">
+            <summary class="ws-encounter-summary">
+              <div class="d-flex align-items-center gap-3 flex-wrap">
+                <span class="badge badge-secondary fs-6 fw-bold">Kunjungan #2</span>
+                <div>
+                  <h2 class="h5 fw-bold mb-0">Senin, 10 Januari 2026 &bull; 08:30 WIB</h2>
+                  <div class="text-muted small">Poli Umum</div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge badge-secondary">Selesai</span>
+                <span class="ws-accordion-chevron" title="Buka/Tutup Detail">&#9662;</span>
+              </div>
+            </summary>
+
+            <div class="ws-encounter-body border-top">
+              <!-- Dokter Penanggung Jawab Kunjungan Ini -->
+              <div class="d-flex align-items-center justify-content-between p-2 px-3 rounded bg-white border mb-4 flex-wrap gap-2">
+                <div>
+                  <span class="text-muted small">Dokter Pemeriksa:</span>
+                  <span class="fw-bold text-dark ms-1">dr. Siti Nurhaliza</span>
+                  <span class="badge badge-secondary ms-2">Poli Umum</span>
+                </div>
+                <span class="badge badge-secondary">Kunjungan Selesai & Diarsipkan</span>
+              </div>
+
+              <!-- 1. Pemeriksaan Awal -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-muted mb-2">1. Pemeriksaan Awal (Vital Signs & Fisik Awal)</div>
+                <div class="ws-vitals-grid mb-3">
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Tekanan Darah</div>
+                    <div class="ws-vital-value text-danger">145/95 <span class="ws-vital-unit">mmHg</span></div>
+                    <span class="ws-vital-status vital-warning">Hipertensi</span>
+                  </div>
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Suhu Tubuh</div>
+                    <div class="ws-vital-value">36.6 <span class="ws-vital-unit">&deg;C</span></div>
+                    <span class="ws-vital-status vital-normal">Normal</span>
+                  </div>
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Berat Badan</div>
+                    <div class="ws-vital-value">69.0 <span class="ws-vital-unit">kg</span></div>
+                    <span class="ws-vital-status vital-normal">Ideal</span>
+                  </div>
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Tinggi Badan</div>
+                    <div class="ws-vital-value">172 <span class="ws-vital-unit">cm</span></div>
+                    <span class="ws-vital-status vital-normal">BMI: 23.3</span>
+                  </div>
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Denyut Nadi</div>
+                    <div class="ws-vital-value">84 <span class="ws-vital-unit">x/mnt</span></div>
+                    <span class="ws-vital-status vital-normal">Reguler</span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-white rounded border">
+                  <div class="small"><strong>Anamnesis:</strong> Tengkuk terasa kaku dan kepala berat sejak 2 hari terakhir. Riwayat konsumsi makanan asin tinggi dan kurang tidur.</div>
+                  <div class="small mt-1"><strong>Pemeriksaan Fisik:</strong> Compos mentis, gizi baik. Cor S1-S2 reguler, tidak ada gallop/murmur. Pulmo suara napas vesikuler simetris.</div>
+                </div>
+              </div>
+
+              <!-- 2. Diagnosis Awal & Tindakan -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-muted mb-2">2. Diagnosis Awal & Tindakan</div>
+                <div class="p-3 bg-white rounded border">
+                  <div class="small"><strong>Diagnosis Awal:</strong> Suspect Hipertensi Primer</div>
+                  <div class="small mt-1"><strong>Tindakan Medis:</strong> Pengukuran tensi serial, edukasi diet rendah garam (DASH Diet).</div>
+                </div>
+              </div>
+
+              <!-- 3. Pemeriksaan Akhir -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-muted mb-2">3. Pemeriksaan Akhir</div>
+                <div class="p-3 bg-white rounded border">
+                  <div class="small">Evaluasi tensi ulangan: 140/90 mmHg. Pasien diedukasi cara minum obat antihipertensi teratur.</div>
+                </div>
+              </div>
+
+              <!-- 4. Diagnosis Akhir -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-muted mb-2">4. Diagnosis Akhir</div>
+                <div class="p-3 bg-white rounded border">
+                  <div class="fw-bold text-danger font-monospace">I10 - Essential (Primary) Hypertension</div>
+                </div>
+              </div>
+
+              <!-- 5. Resep & Catatan -->
+              <div>
+                <div class="text-uppercase small fw-bold text-muted mb-2">5. Resep Obat & Catatan Edukasi Dokter</div>
+                <div class="p-3 bg-white rounded border">
+                  <div class="small"><strong>Resep:</strong> Amlodipine 5mg 1x1 tab pagi #30, Vitamin B-Complex 1x1 tab #10.</div>
+                  <div class="small mt-1 text-muted"><strong>Catatan:</strong> Kontrol ulang 1 bulan kemudian atau jika timbul keluhan pusing berat.</div>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Encounter 3: Lampau (12 November 2025) - Kunjungan Selesai (Warna Abu-Abu Muted) -->
+          <details class="ws-encounter-accordion is-selesai">
+            <summary class="ws-encounter-summary">
+              <div class="d-flex align-items-center gap-3 flex-wrap">
+                <span class="badge badge-secondary fs-6 fw-bold">Kunjungan #1</span>
+                <div>
+                  <h2 class="h5 fw-bold mb-0">Rabu, 12 November 2025 &bull; 10:15 WIB</h2>
+                  <div class="text-muted small">Poli Umum</div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge badge-secondary">Selesai</span>
+                <span class="ws-accordion-chevron" title="Buka/Tutup Detail">&#9662;</span>
+              </div>
+            </summary>
+
+            <div class="ws-encounter-body border-top">
+              <!-- Dokter Penanggung Jawab Kunjungan Ini -->
+              <div class="d-flex align-items-center justify-content-between p-2 px-3 rounded bg-white border mb-4 flex-wrap gap-2">
+                <div>
+                  <span class="text-muted small">Dokter Pemeriksa:</span>
+                  <span class="fw-bold text-dark ms-1">dr. Siti Nurhaliza</span>
+                  <span class="badge badge-secondary ms-2">Poli Umum</span>
+                </div>
+                <span class="badge badge-secondary">Kunjungan Selesai & Diarsipkan</span>
+              </div>
+
+              <!-- 1. Pemeriksaan Awal -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-muted mb-2">1. Pemeriksaan Awal (Vital Signs & Fisik Awal)</div>
+                <div class="ws-vitals-grid mb-3">
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Tekanan Darah</div>
+                    <div class="ws-vital-value">130/85 <span class="ws-vital-unit">mmHg</span></div>
+                    <span class="ws-vital-status vital-normal">Normal</span>
+                  </div>
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Suhu Tubuh</div>
+                    <div class="ws-vital-value">36.5 <span class="ws-vital-unit">&deg;C</span></div>
+                    <span class="ws-vital-status vital-normal">Normal</span>
+                  </div>
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Berat Badan</div>
+                    <div class="ws-vital-value">70.0 <span class="ws-vital-unit">kg</span></div>
+                    <span class="ws-vital-status vital-normal">Ideal</span>
+                  </div>
+                  <div class="ws-vital-box">
+                    <div class="ws-vital-label">Tinggi Badan</div>
+                    <div class="ws-vital-value">172 <span class="ws-vital-unit">cm</span></div>
+                    <span class="ws-vital-status vital-normal">BMI: 23.6</span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-white rounded border">
+                  <div class="small"><strong>Anamnesis:</strong> Nyeri lambung dan mual setelah minum kopi pekat saat perut kosong.</div>
+                </div>
+              </div>
+
+              <!-- 2. Diagnosis Awal & Tindakan -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-muted mb-2">2. Diagnosis Awal & Tindakan</div>
+                <div class="p-3 bg-white rounded border">
+                  <div class="small"><strong>Diagnosis Awal:</strong> Gastritis Akut</div>
+                  <div class="small mt-1"><strong>Tindakan Medis:</strong> Edukasi pantang konsumsi kopi dan asam.</div>
+                </div>
+              </div>
+
+              <!-- 3. Pemeriksaan Akhir -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-muted mb-2">3. Pemeriksaan Akhir</div>
+                <div class="p-3 bg-white rounded border">
+                  <div class="small">Mual mereda, kesadaran baik.</div>
+                </div>
+              </div>
+
+              <!-- 4. Diagnosis Akhir -->
+              <div class="mb-4">
+                <div class="text-uppercase small fw-bold text-muted mb-2">4. Diagnosis Akhir</div>
+                <div class="p-3 bg-white rounded border">
+                  <div class="fw-bold text-danger font-monospace">K29.7 &mdash; Gastritis, unspecified</div>
+                </div>
+              </div>
+
+              <!-- 5. Resep & Catatan -->
+              <div>
+                <div class="text-uppercase small fw-bold text-muted mb-2">5. Resep Obat & Catatan Edukasi Dokter</div>
+                <div class="p-3 bg-white rounded border">
+                  <div class="small"><strong>Resep:</strong> Antasida tab 3x1 a.c kunyah, Ranitidine 150mg 2x1 a.c.</div>
+                </div>
+              </div>
+            </div>
+          </details>
+
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>
+

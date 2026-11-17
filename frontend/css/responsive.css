@@ -1,0 +1,221 @@
+
+/* Tablet & Mobile Screens (<= 991.98px) */
+@media (max-width: 991.98px) {
+  /* Layout adjustments */
+  .ws-main-wrapper {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+
+  /* Mobile Sidebar Drawer (Pure CSS Toggle) */
+  .ws-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+    max-width: 85vw;
+    z-index: 1100;
+    transform: translateX(-100%);
+    box-shadow: none;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* When checkbox is checked, slide in sidebar */
+  #sidebarToggle:checked ~ .ws-app-layout .ws-sidebar,
+  #sidebarToggle:checked ~ .ws-sidebar {
+    transform: translateX(0) !important;
+    box-shadow: 0 0 40px rgba(15, 23, 42, 0.25);
+  }
+
+  /* Overlay backdrop */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1050;
+    cursor: pointer;
+  }
+
+  #sidebarToggle:checked ~ .sidebar-overlay {
+    display: block !important;
+  }
+
+  /* Topbar trigger button */
+  .sidebar-toggle-btn {
+    display: inline-flex !important;
+  }
+
+  .ws-topbar {
+    padding: 0 1rem;
+  }
+
+  .ws-content-body {
+    padding: 1.25rem 1rem;
+  }
+
+  /* Stats grid collapse to 2 columns */
+  .ws-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem;
+  }
+}
+
+/* Smartphone Screens (<= 767.98px) */
+@media (max-width: 767.98px) {
+  /* Headings size down */
+  h1 { font-size: 1.5rem !important; }
+  h2 { font-size: 1.3rem !important; }
+  h3 { font-size: 1.15rem !important; }
+
+  /* Stats grid single column */
+  .ws-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .ws-stat-card {
+    padding: 1rem 1.25rem;
+  }
+
+  .ws-stat-value {
+    font-size: 1.5rem;
+  }
+
+  /* Header action stacking */
+  .ws-page-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  .ws-page-header .ws-header-actions {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ws-page-header .ws-header-actions .btn {
+    flex: 1 1 auto;
+  }
+
+  /* Card headers */
+  .ws-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .ws-card-header .ws-card-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .ws-card-body {
+    padding: 1.25rem 1rem;
+  }
+
+  .ws-card-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  /* Form actions */
+  .ws-form-actions {
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+
+  .ws-form-actions .btn {
+    width: 100%;
+  }
+
+  /* Modal responsive */
+  .ws-modal-box {
+    padding: 1.5rem;
+    margin: 1rem;
+    width: calc(100% - 2rem);
+  }
+
+  .ws-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .ws-modal-actions .btn {
+    width: 100%;
+  }
+
+  /* Topbar components */
+  .ws-system-date {
+    display: none !important;
+  }
+
+  .ws-breadcrumb-nav .ws-parent {
+    display: none;
+  }
+
+  .ws-breadcrumb-nav .ws-separator {
+    display: none;
+  }
+
+  /* Touch-friendly inputs and buttons */
+  .form-control, .form-select, .btn {
+    min-height: 44px;
+    font-size: 0.95rem;
+  }
+
+  /* Filter toolbar responsive */
+  .ws-filter-bar {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  .ws-filter-bar .input-group,
+  .ws-filter-bar .form-select,
+  .ws-filter-bar .btn {
+    width: 100% !important;
+  }
+
+  /* Table responsive hints */
+  .table-responsive {
+    position: relative;
+    border: 1px solid var(--ws-border-color);
+  }
+}
+
+/* Small Smartphone (<= 479.98px) */
+@media (max-width: 479.98px) {
+  .ws-auth-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .ws-auth-title {
+    font-size: 1.25rem;
+  }
+
+  .ws-queue-number {
+    font-size: 2.25rem;
+  }
+
+  .ws-vitals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+

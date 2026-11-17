@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Dokter - WartaSehat.id</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Local Custom CSS -->
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body>
+
+  <!-- Pure CSS Mobile Sidebar Toggle Mechanism -->
+  <input type="checkbox" id="sidebarToggle" class="sidebar-toggle-check visually-hidden">
+  <label for="sidebarToggle" class="sidebar-overlay" aria-label="Tutup Menu"></label>
+
+  <div class="ws-app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="ws-sidebar">
+      <div class="ws-sidebar-brand">
+        <div class="ws-brand-logo" style="background: linear-gradient(135deg, var(--ws-secondary) 0%, var(--ws-primary) 100%);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div class="ws-brand-text">
+          <div class="ws-brand-title">WartaSehat<span>.id</span></div>
+          <div class="ws-brand-badge">Portal Dokter</div>
+        </div>
+      </div>
+
+      <ul class="ws-sidebar-menu">
+        <li class="ws-menu-header">Menu Pemeriksaan</li>
+        <li class="ws-menu-item">
+          <a href="dashboard.html" class="ws-menu-link active">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </span>
+            <span>Dashboard Dokter</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="antrean-poli.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </span>
+            <span>Antrean Poliklinik</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="detail-pemeriksaan.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" y1="15" x2="15" y2="15"/>
+              </svg>
+            </span>
+            <span>Pemeriksaan Pasien</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="ws-sidebar-footer">
+        <div class="ws-user-card">
+          <div class="ws-user-avatar" style="background-color: var(--ws-secondary-light); color: var(--ws-secondary);">
+            HP
+          </div>
+          <div class="ws-user-details">
+            <div class="ws-user-name">dr. Hendra Pratama, Sp.PD</div>
+            <span class="ws-user-role">Spesialis Penyakit Dalam</span>
+          </div>
+        </div>
+        <a href="../auth/login.html" class="ws-logout-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Keluar Sistem
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="ws-main-wrapper">
+      <!-- Topbar Header -->
+      <header class="ws-topbar">
+        <div class="ws-topbar-left">
+          <label for="sidebarToggle" class="sidebar-toggle-btn" aria-label="Buka Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </label>
+          <nav class="ws-breadcrumb-nav" aria-label="Breadcrumb">
+            <span class="ws-parent">Portal Dokter</span>
+            <span class="ws-separator">/</span>
+            <span class="ws-current">Dashboard Pemeriksaan</span>
+          </nav>
+        </div>
+
+        <div class="ws-topbar-right">
+          <div class="ws-system-date">
+            <span class="badge badge-primary">Poli Penyakit Dalam &bull; Ruang 102</span>
+          </div>
+          <a href="detail-pemeriksaan.html" class="btn btn-primary btn-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            <span>Pemeriksaan Pasien Aktif</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      <main class="ws-content-body">
+        <div class="d-flex justify-content-between align-items-center mb-4 ws-page-header">
+          <div>
+            <h1 class="h3 fw-bold mb-1">Dashboard Dokter Pemeriksa</h1>
+            <p class="text-muted mb-0">Kelola antrean poliklinik, periksa riwayat rekam medik, dan catat hasil diagnosis serta resep obat pasien.</p>
+          </div>
+          <div class="ws-header-actions">
+            <a href="antrean-poli.html" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              Kelola Antrean Poli
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 KPI Metrics Stats Grid -->
+        <div class="row g-3 mb-4 ws-stats-grid">
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="ws-stat-card variant-warning">
+              <div class="ws-stat-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="ws-stat-info">
+                <div class="ws-stat-label">Pasien Menunggu</div>
+                <div class="ws-stat-value">6</div>
+                <div class="ws-stat-desc">Di ruang tunggu Poli 102</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="ws-stat-card">
+              <div class="ws-stat-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </div>
+              <div class="ws-stat-info">
+                <div class="ws-stat-label">Sedang Diperiksa</div>
+                <div class="ws-stat-value">1</div>
+                <div class="ws-stat-desc">Antrean: <strong>A-012</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="ws-stat-card variant-success">
+              <div class="ws-stat-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <div class="ws-stat-info">
+                <div class="ws-stat-label">Pemeriksaan Selesai</div>
+                <div class="ws-stat-value">18</div>
+                <div class="ws-stat-desc">Pasien selesai hari ini</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3">
+            <div class="ws-stat-card variant-secondary">
+              <div class="ws-stat-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 3 21 3 21 9"/>
+                  <polyline points="9 21 3 21 3 15"/>
+                  <line x1="21" y1="3" x2="14" y2="10"/>
+                  <line x1="3" y1="21" x2="10" y2="14"/>
+                </svg>
+              </div>
+              <div class="ws-stat-info">
+                <div class="ws-stat-label">Rujuk / Tindak Lanjut</div>
+                <div class="ws-stat-value">3</div>
+                <div class="ws-stat-desc">Spesialis & RS Rujukan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spotlight Card: Pasien yang Sedang Diperiksa Saat Ini -->
+        <div class="ws-card mb-4 border-2 border-primary">
+          <div class="ws-card-header bg-light">
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge badge-primary fs-6 fw-bold">SEDANG DIPERIKSA</span>
+              <h2 class="ws-card-title mb-0">Pasien Dalam Ruang Periksa (Poli Penyakit Dalam)</h2>
+            </div>
+            <span class="text-muted small">Waktu panggil: 08:35 WIB</span>
+          </div>
+          <div class="ws-card-body p-4">
+            <div class="row align-items-center g-4">
+              <div class="col-12 col-md-3 text-center border-end">
+                <div class="text-uppercase small fw-bold text-muted">Nomor Antrean</div>
+                <div class="ws-queue-number my-1 text-primary">A-012</div>
+                <div class="cell-code fs-6">RM-2026-0038</div>
+              </div>
+              <div class="col-12 col-md-5">
+                <h3 class="h4 fw-bold mb-1">Ahmad Fauzi</h3>
+                <!-- Patient Identity List -->
+                <div class="ws-identity-list mb-2">
+                  <div class="ws-identity-item">
+                    <span class="ws-identity-label">JK:</span>
+                    <span class="ws-identity-val">Laki-laki</span>
+                  </div>
+                  <div class="ws-identity-item">
+                    <span class="ws-identity-label">Usia:</span>
+                    <span class="ws-identity-val">45 Tahun</span>
+                  </div>
+                  <div class="ws-identity-item">
+                    <span class="ws-identity-label">Gol. Darah:</span>
+                    <span class="ws-identity-val">O</span>
+                  </div>
+                  <div class="ws-identity-item">
+                    <span class="ws-identity-label">No. HP:</span>
+                    <span class="ws-identity-val">081234567890</span>
+                  </div>
+                </div>
+                <div class="p-2 bg-light rounded border small">
+                  <strong>Keluhan Awal:</strong> Nyeri dada sebelah kiri tembus ke punggung dan sesak napas ringan setelah beraktivitas fisik.
+                </div>
+              </div>
+              <div class="col-12 col-md-4 text-md-end">
+                <a href="detail-pemeriksaan.html" class="btn btn-primary btn-lg w-100 mb-2">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="12" y1="18" x2="12" y2="12"/>
+                    <line x1="9" y1="15" x2="15" y2="15"/>
+                  </svg>
+                  Input Rekam Medik & Resep &rarr;
+                </a>
+                <a href="riwayat-rekam-medik-dokter.html" class="btn btn-secondary btn-sm w-100">
+                  Lihat Riwayat Rekam Medik Lampau
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 1: Daftar Pasien Dalam Tindakan / Penunjang (Dipisah Tersendiri) -->
+        <div class="ws-card mb-4">
+          <div class="ws-card-header bg-light-subtle">
+            <div>
+              <h2 class="ws-card-title text-purple" style="color: #6366f1;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  <path d="M12 5v14"/>
+                </svg>
+                Daftar Pasien Dalam Tindakan / Penunjang
+              </h2>
+              <div class="ws-card-subtitle">Pasien yang sedang menunggu hasil laboratorium atau tindakan medis khusus</div>
+            </div>
+            <div class="ws-card-actions">
+              <span class="badge badge-tindakan">Khusus Tindakan</span>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table ws-table align-middle">
+              <thead>
+                <tr>
+                  <th style="width: 100px;">No. Antrean</th>
+                  <th style="width: 90px;">Waktu</th>
+                  <th>No. Rekam Medis</th>
+                  <th>Nama Pasien</th>
+                  <th>Usia / JK</th>
+                  <th>Tindakan / Prosedur</th>
+                  <th>Status</th>
+                  <th class="text-center" style="width: 180px;">Aksi Dokter</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row: Siti Rahmawati (Dalam Tindakan) -->
+                <tr>
+                  <td>
+                    <span class="badge badge-tindakan fw-bold fs-6">A-013</span>
+                  </td>
+                  <td class="text-muted small">08:30 WIB</td>
+                  <td>
+                    <span class="cell-code">RM-2026-0012</span>
+                  </td>
+                  <td>
+                    <div class="fw-bold">Siti Rahmawati</div>
+                  </td>
+                  <td class="small">34 Thn / P</td>
+                  <td class="small">
+                    <span class="badge bg-purple-subtle text-purple fw-semibold p-1 px-2 border" style="background-color: #f5f3ff; color: #7c3aed; border-color: #ddd6fe !important;">
+                      Tes Darah Lab
+                    </span>
+                    <div class="text-muted small mt-1">Demam 3 hari naik turun</div>
+                  </td>
+                  <td>
+                    <span class="badge bg-success text-white">
+                      <span class="status-dot bg-white"></span> Hasil Siap Ditinjau
+                    </span>
+                    <div class="text-success small mt-1 fw-semibold" style="font-size: 0.72rem;">Hasil Terkirim dari Petugas</div>
+                  </td>
+                  <td class="text-center">
+                    <a href="detail-pemeriksaan.html" class="btn btn-sm btn-primary">
+                      Tinjau & Selesaikan
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 2: Table of Queue for Doctor (Antrean Pemeriksaan Utama) -->
+        <div class="ws-card">
+          <div class="ws-card-header">
+            <div>
+              <h2 class="ws-card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                Antrean Pasien Poliklinik Hari Ini
+              </h2>
+              <div class="ws-card-subtitle">Urutan antrean pasien Poli Penyakit Dalam hari ini (Senin, 16 November 2026)</div>
+            </div>
+            <div class="ws-card-actions">
+              <a href="antrean-poli.html" class="btn btn-sm btn-outline-primary">
+                Buka Manajemen Antrean Penuh
+              </a>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table ws-table align-middle">
+              <thead>
+                <tr>
+                  <th style="width: 100px;">No. Antrean</th>
+                  <th style="width: 90px;">Waktu</th>
+                  <th>No. Rekam Medis</th>
+                  <th>Nama Pasien</th>
+                  <th>Usia / JK</th>
+                  <th>Keluhan Pasien</th>
+                  <th>Status</th>
+                  <th class="text-center" style="width: 160px;">Aksi Dokter</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row 1: Sedang Diperiksa -->
+                <tr class="table-primary-subtle">
+                  <td>
+                    <span class="badge badge-primary fw-bold fs-6">A-012</span>
+                  </td>
+                  <td class="text-muted small">08:15 WIB</td>
+                  <td>
+                    <span class="cell-code">RM-2026-0038</span>
+                  </td>
+                  <td>
+                    <div class="fw-bold">Ahmad Fauzi</div>
+                  </td>
+                  <td class="small">45 Thn / L</td>
+                  <td class="small text-muted">Nyeri dada sebelah kiri tembus punggung...</td>
+                  <td>
+                    <span class="badge badge-primary">
+                      <span class="status-dot"></span> Sedang Diperiksa
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <a href="detail-pemeriksaan.html" class="btn btn-sm btn-primary">
+                      Lanjutkan &rarr;
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Row 2: Menunggu -->
+                <tr>
+                  <td>
+                    <span class="badge badge-warning fw-bold fs-6">A-014</span>
+                  </td>
+                  <td class="text-muted small">08:50 WIB</td>
+                  <td>
+                    <span class="cell-code">RM-2026-0050</span>
+                  </td>
+                  <td>
+                    <div class="fw-bold">Hendro Gunawan</div>
+                  </td>
+                  <td class="small">52 Thn / L</td>
+                  <td class="small text-muted">Nyeri lambung perih setelah makan asam...</td>
+                  <td>
+                    <span class="badge badge-warning">
+                      <span class="status-dot"></span> Menunggu
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <a href="detail-pemeriksaan.html" class="btn btn-sm btn-outline-primary">
+                      Panggil & Periksa
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Row 3: Menunggu -->
+                <tr>
+                  <td>
+                    <span class="badge badge-warning fw-bold fs-6">A-015</span>
+                  </td>
+                  <td class="text-muted small">09:05 WIB</td>
+                  <td>
+                    <span class="cell-code">RM-2026-0052</span>
+                  </td>
+                  <td>
+                    <div class="fw-bold">Nurul Hidayah</div>
+                  </td>
+                  <td class="small">28 Thn / P</td>
+                  <td class="small text-muted">Mual, pusing berputar, lemas...</td>
+                  <td>
+                    <span class="badge badge-warning">
+                      <span class="status-dot"></span> Menunggu
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <a href="detail-pemeriksaan.html" class="btn btn-sm btn-outline-primary">
+                      Panggil & Periksa
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="ws-card-footer">
+            <div class="text-muted small">Menampilkan antrean aktif Poli Penyakit Dalam (Pasien selesai otomatis diarsipkan ke rekam medis)</div>
+            <a href="antrean-poli.html" class="small fw-semibold">Buka Antrean Lengkap &rarr;</a>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran Pasien Baru - WartaSehat.id</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Local Custom CSS -->
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body>
+
+  <!-- Pure CSS Mobile Sidebar Toggle Mechanism -->
+  <input type="checkbox" id="sidebarToggle" class="sidebar-toggle-check visually-hidden">
+  <label for="sidebarToggle" class="sidebar-overlay" aria-label="Tutup Menu"></label>
+
+  <div class="ws-app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="ws-sidebar">
+      <div class="ws-sidebar-brand">
+        <div class="ws-brand-logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 6v12M6 12h12"/>
+            <circle cx="12" cy="12" r="10" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <div class="ws-brand-text">
+          <div class="ws-brand-title">WartaSehat<span>.id</span></div>
+          <div class="ws-brand-badge">Petugas Administrasi</div>
+        </div>
+      </div>
+
+      <ul class="ws-sidebar-menu">
+        <li class="ws-menu-header">Menu Utama</li>
+        <li class="ws-menu-item">
+          <a href="dashboard.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </span>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="pendaftaran-pasien.html" class="ws-menu-link active">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="8.5" cy="7" r="4"/>
+                <line x1="20" y1="8" x2="20" y2="14"/>
+                <line x1="23" y1="11" x2="17" y2="11"/>
+              </svg>
+            </span>
+            <span>Pendaftaran Pasien</span>
+          </a>
+        </li>
+        <li class="ws-menu-item">
+          <a href="daftar-pasien.html" class="ws-menu-link">
+            <span class="ws-menu-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </span>
+            <span>Data Pasien</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="ws-sidebar-footer">
+        <div class="ws-user-card">
+          <div class="ws-user-avatar">BS</div>
+          <div class="ws-user-details">
+            <div class="ws-user-name">Budi Santoso</div>
+            <span class="ws-user-role">Petugas Pendaftaran</span>
+          </div>
+        </div>
+        <a href="../auth/login.html" class="ws-logout-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Keluar Sistem
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="ws-main-wrapper">
+      <!-- Topbar Header -->
+      <header class="ws-topbar">
+        <div class="ws-topbar-left">
+          <label for="sidebarToggle" class="sidebar-toggle-btn" aria-label="Buka Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </label>
+          <nav class="ws-breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="dashboard.html" class="ws-parent">Dashboard</a>
+            <span class="ws-separator">/</span>
+            <span class="ws-current">Pendaftaran Pasien</span>
+          </nav>
+        </div>
+
+        <div class="ws-topbar-right">
+          <a href="daftar-pasien.html" class="btn btn-secondary btn-sm">
+            &larr; Lihat Data Pasien
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      <main class="ws-content-body">
+        <div class="mb-4">
+          <h1 class="h3 fw-bold mb-1">Formulir Pendaftaran Pasien Baru</h1>
+          <p class="text-muted mb-0">Lengkapi data demografis pasien untuk menerbitkan Nomor Rekam Medis (RM) dan mendaftarkan antrean poliklinik.</p>
+        </div>
+
+      
+
+        <!-- Main Form (POST to Backend PHP) -->
+        <form action="daftar-pasien.html" method="POST" id="formPendaftaran">
+          <div class="row g-4">
+            <!-- Left Column: Data Identitas Pasien (Tabel `pasien`) -->
+            <div class="col-12 col-lg-8">
+              <div class="ws-card">
+                <div class="ws-card-header">
+                  <h2 class="ws-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                      <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    A. Data Identitas Pasien (Tabel: <code>pasien</code>)
+                  </h2>
+                  <span class="badge badge-primary">Pasien Baru</span>
+                </div>
+                <div class="ws-card-body">
+                  <!-- Row 1: Nomor RM & NIK -->
+                  <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-4">
+                      <label for="nomor_rm" class="form-label">
+                        Nomor RM (Otomatis)
+                      </label>
+                      <input 
+                        type="text" 
+                        class="form-control bg-light fw-bold text-primary font-monospace" 
+                        id="nomor_rm" 
+                        name="nomor_rm" 
+                        value="RM-2026-0049" 
+                        readonly 
+                        title="Dihasilkan secara otomatis oleh sistem backend"
+                      >
+                      <div class="form-text">Generate otomatis format tahun.</div>
+                    </div>
+
+                    <div class="col-12 col-md-8">
+                      <label for="nik" class="form-label">
+                        Nomor Induk Kependudukan (NIK) <span class="required">*</span>
+                      </label>
+                      <input 
+                        type="text" 
+                        class="form-control font-monospace" 
+                        id="nik" 
+                        name="nik" 
+                        placeholder="Contoh: 3304123456780001" 
+                        required 
+                        maxlength="16" 
+                        minlength="16"
+                        pattern="[0-9]{16}"
+                        title="NIK harus berjumlah tepat 16 angka"
+                      >
+                      <div class="form-text">16 digit angka sesuai KTP / Kartu Keluarga.</div>
+                    </div>
+                  </div>
+
+                  <!-- Row 2: Nama Lengkap -->
+                  <div class="mb-3">
+                    <label for="nama_pasien" class="form-label">
+                      Nama Lengkap Pasien <span class="required">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="nama_pasien" 
+                      name="nama_pasien" 
+                      placeholder="Masukkan nama lengkap pasien tanpa singkatan" 
+                      required 
+                      maxlength="100"
+                    >
+                  </div>
+
+                  <!-- Row 3: Tempat & Tanggal Lahir -->
+                  <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                      <label for="tempat_lahir" class="form-label">
+                        Tempat Lahir <span class="required">*</span>
+                      </label>
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="tempat_lahir" 
+                        name="tempat_lahir" 
+                        placeholder="Kota / Kabupaten kelahiran" 
+                        required 
+                        maxlength="50"
+                      >
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label for="tanggal_lahir" class="form-label">
+                        Tanggal Lahir <span class="required">*</span>
+                      </label>
+                      <input 
+                        type="date" 
+                        class="form-control" 
+                        id="tanggal_lahir" 
+                        name="tanggal_lahir" 
+                        required
+                        max="2026-11-16"
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Row 4: Jenis Kelamin & Golongan Darah -->
+                  <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                      <label class="form-label d-block">
+                        Jenis Kelamin <span class="required">*</span>
+                      </label>
+                      <div class="d-flex gap-4 pt-1">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="jenis_kelamin" id="jk_l" value="L" required checked>
+                          <label class="form-check-label" for="jk_l">
+                            Laki-laki (L)
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="jenis_kelamin" id="jk_p" value="P" required>
+                          <label class="form-check-label" for="jk_p">
+                            Perempuan (P)
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label for="golongan_darah" class="form-label">
+                        Golongan Darah
+                      </label>
+                      <select class="form-select" id="golongan_darah" name="golongan_darah">
+                        <option value="-">Tidak Tahu / Belum Cek (-)</option>
+                        <option value="A">Golongan A</option>
+                        <option value="B">Golongan B</option>
+                        <option value="AB">Golongan AB</option>
+                        <option value="O">Golongan O</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Row 5: Agama & Status Pernikahan -->
+                  <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                      <label for="agama" class="form-label">Agama</label>
+                      <select class="form-select" id="agama" name="agama">
+                        <option value="Islam">Islam</option>
+                        <option value="Kristen">Kristen</option>
+                        <option value="Katolik">Katolik</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Buddha">Buddha</option>
+                        <option value="Konghucu">Konghucu</option>
+                        <option value="Lainnya">Lainnya</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label for="status_pernikahan" class="form-label">Status Pernikahan</label>
+                      <select class="form-select" id="status_pernikahan" name="status_pernikahan">
+                        <option value="Belum Menikah">Belum Menikah</option>
+                        <option value="Menikah">Menikah</option>
+                        <option value="Cerai Hidup">Cerai Hidup</option>
+                        <option value="Cerai Mati">Cerai Mati</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Row 6: Pekerjaan & No. Telepon -->
+                  <div class="row g-3 mb-3">
+                    <div class="col-12 col-md-6">
+                      <label for="pekerjaan" class="form-label">Pekerjaan</label>
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="pekerjaan" 
+                        name="pekerjaan" 
+                        placeholder="Contoh: Karyawan Swasta, Wiraswasta, PNS" 
+                        maxlength="50"
+                      >
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label for="no_telepon" class="form-label">
+                        No. Telepon / WhatsApp <span class="required">*</span>
+                      </label>
+                      <input 
+                        type="tel" 
+                        class="form-control font-monospace" 
+                        id="no_telepon" 
+                        name="no_telepon" 
+                        placeholder="Contoh: 081234567890" 
+                        required 
+                        pattern="[0-9]{9,15}"
+                        title="Masukkan nomor telepon valid (9-15 digit)"
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Row 7: Alamat Lengkap -->
+                  <div class="mb-3">
+                    <label for="alamat" class="form-label">
+                      Alamat Domisili Pasien <span class="required">*</span>
+                    </label>
+                    <textarea 
+                      class="form-control" 
+                      id="alamat" 
+                      name="alamat" 
+                      rows="3" 
+                      placeholder="Tuliskan nama jalan, RT/RW, Dusun, Kelurahan, Kecamatan, dan Kota/Kabupaten" 
+                      required
+                    ></textarea>
+                  </div>
+
+                  <!-- Row 8: Tanggal Pendaftaran -->
+                  <div class="mb-0">
+                    <label for="tanggal_daftar" class="form-label">Tanggal Pendaftaran</label>
+                    <input 
+                      type="date" 
+                      class="form-control bg-light" 
+                      id="tanggal_daftar" 
+                      name="tanggal_daftar" 
+                      value="2026-11-16" 
+                      readonly
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Pendaftaran Antrean Poliklinik & Karcis -->
+            <div class="col-12 col-lg-4">
+              <!-- Card B: Antrean Poli Hari Ini -->
+              <div class="ws-card mb-4">
+                <div class="ws-card-header">
+                  <h2 class="ws-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    B. Kunjungan Poli Hari Ini
+                  </h2>
+                </div>
+                <div class="ws-card-body">
+                  <div class="mb-3">
+                    <label for="id_poli" class="form-label">
+                      Poliklinik Tujuan <span class="required">*</span>
+                    </label>
+                    <select class="form-select" id="id_poli" name="id_poli" required>
+                      <option value="">-- Pilih Poliklinik --</option>
+                      <option value="1">Poli Umum (Ruang 101)</option>
+                      <option value="2" selected>Poli Penyakit Dalam (Ruang 102)</option>
+                      <option value="3">Poli Gigi & Mulut (Ruang 104)</option>
+                      <option value="4">Poli Anak (Ruang 105)</option>
+                      <option value="5">Poli Mata (Ruang 106)</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="id_dokter" class="form-label">
+                      Dokter Pemeriksa <span class="required">*</span>
+                    </label>
+                    <select class="form-select" id="id_dokter" name="id_dokter" required>
+                      <option value="">-- Pilih Dokter --</option>
+                      <option value="1" selected>dr. Hendra Pratama, Sp.PD</option>
+                      <option value="2">dr. Siti Nurhaliza</option>
+                      <option value="3">drg. Maya Sari</option>
+                      <option value="4">dr. Ratna Juwita, Sp.A</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="keluhan_awal" class="form-label">
+                      Keluhan Awal Pasien <span class="required">*</span>
+                    </label>
+                    <textarea 
+                      class="form-control" 
+                      id="keluhan_awal" 
+                      name="keluhan_awal" 
+                      rows="3" 
+                      placeholder="Keluhan utama yang dirasakan pasien saat datang..."
+                      required
+                    ></textarea>
+                  </div>
+
+                  <!-- Hidden default status antrean for backend -->
+                  <input type="hidden" name="status_antrean" value="Menunggu">
+                  <input type="hidden" name="tanggal_kunjungan" value="2026-11-16">
+                </div>
+              </div>
+
+              <!-- Ticket Preview Card -->
+              <div class="ws-queue-ticket mb-4">
+                <div class="text-uppercase small fw-bold text-muted">Estimasi Karcis Antrean</div>
+                <div class="ws-queue-number">A-014</div>
+                <div class="ws-queue-poli">Poli Penyakit Dalam</div>
+                <div class="text-muted small mt-2">
+                  Dokter: <strong>dr. Hendra Pratama, Sp.PD</strong><br>
+                  Perkiraan waktu tunggu: &plusmn; 25 menit
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="d-grid gap-2 ws-form-actions">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                    <polyline points="17 21 17 13 7 13 7 21"/>
+                    <polyline points="7 3 7 8 15 8"/>
+                  </svg>
+                  Simpan & Daftarkan Antrean
+                </button>
+                <button type="reset" class="btn btn-secondary">
+                  Reset Formulir
+                </button>
+                <a href="dashboard.html" class="btn btn-outline-danger">
+                  Batal
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>
+
