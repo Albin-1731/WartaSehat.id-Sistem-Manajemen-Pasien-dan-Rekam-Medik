@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../../backend/koneksi.php';
+require_once '../../../backend/koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: login.php");

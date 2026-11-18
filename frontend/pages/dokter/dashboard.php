@@ -1,6 +1,6 @@
 <?php
-require_once '../../backend/koneksi.php';
-require_once '../../backend/auth_check.php';
+require_once '../../../backend/koneksi.php';
+require_once '../../../backend/auth_check.php';
 
 // Proteksi ketat: Hanya Dokter yang boleh mengakses
 check_dokter();

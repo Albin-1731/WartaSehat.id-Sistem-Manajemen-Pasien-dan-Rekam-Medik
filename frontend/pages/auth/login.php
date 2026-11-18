@@ -24,9 +24,9 @@ $pesan = isset($_GET['pesan']) ? $_GET['pesan'] : '';
   <!-- Bootstrap 5 CSS CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <!-- Local Custom CSS -->
-  <link rel="stylesheet" href="../../frontend/css/variables.css">
-  <link rel="stylesheet" href="../../frontend/css/style.css">
-  <link rel="stylesheet" href="../../frontend/css/responsive.css">
+  <link rel="stylesheet" href="../../css/variables.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
 </head>
 <body class="ws-auth-wrapper">
 
